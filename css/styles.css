@@ -1,5 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body{
+    font-family: Montserrat;
+}
+
+.body-login{
+    background-color: #C95534;
+}
+
+
 .border-rounded {
     border: 2px solid #ced4da; /* Cor da borda cinza */
     border-radius: 1rem; /* Borda arredondada */
     padding: 4rem;
+}
+
+.navbar-custom {
+    height: 80px; /* Defina a altura desejada aqui */
+}
+
+
+
+.main-color{
+    color: #C95534;
+}
+
+.main-background{
+    background-color: #C95534;
+}
+
+.navbar-background{
+    background-color: #F0F0F0;
 }

@@ -10,39 +10,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav id="nav" class="navbar navbar-expand-sm navbar-custom navbar-background">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">TSIW</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand">TSIW</a>
             <div class="collapse navbar-collapse ms-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/html/admin/UsersManageView.html">Gerir Users</a>
+                <ul class="navbar-nav mx-auto gap-5">
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link" href="/html/admin/UsersManageView.html">Gerir Utilizadores</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-auto">
                         <a class="nav-link" href="/html/admin/InformationManageView.html">Gerir Conteúdo</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/html/admin/PlanManageView.html">Gerir Plano</a>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link" href="/html/admin/PlanManageView.html">Gerir Plano Curricular</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/html/admin/ActivitiesManageView.html">Gerir Atividades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/html/admin/AlumniManageView.html">Gerir Testemunhos Alumni</a>
-                    </li>
-                    <li class="nav-item">
-                        <p id="welcomeMessage" class="text-white"></p>
+                    <li class="nav-item mx-auto">
+                      <a class="nav-link main-color" href="/html/admin/ActivitiesManageView.html">Gerir Atividades</a>
+                  </li>
+                    <li class="nav-item mx-auto">
+                        <a class="nav-link" href="/html/admin/AlumniManageView.html">Gerir Testemunhos</a>
                     </li>
                 </ul>
             </div>
-            <button id="loginButton" class="btn btn-primary">Login</button>
-            <button id="logoutButton" class="btn btn-primary">Logout</button>
+            <button id="logoutButton" class="btn main-color" style="border-color: #C95534;">Logout</button>
         </div>
     </nav>
 
