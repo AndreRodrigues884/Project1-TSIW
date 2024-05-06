@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body{
-    font-family: Montserrat;
+    font-family: "Archivo", sans-serif;
+    background-color: #171717;
 }
 
-.body-login{
-    background-color: #C95534;
-}
 
 
 .border-rounded {
@@ -20,16 +18,84 @@ body{
     height: 80px; /* Defina a altura desejada aqui */
 }
 
-
-
-.main-color{
-    color: #C95534;
-}
-
-.main-background{
-    background-color: #C95534;
-}
-
 .navbar-background{
-    background-color: #F0F0F0;
+    background-color: #000000;
+}
+
+.sec-background{
+    background-color: #171717;
+}
+
+.logo{
+    width: 10rem;
+    height: auto;
+}
+
+.main-text-color{
+    color: #F5F5F5;
+}
+
+.sec-text-color{
+    color: #CFCFCF;
+}
+
+.purple{
+    background-color: #551473;
+}
+
+
+.footer-background{
+    background-color: #000000;
+}
+
+.custom-img-register {
+    height: 50rem;
+    width: auto;
+  }
+
+
+
+
+
+.table-custom {
+    font-size: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e6f7ff;
+}
+
+.table-custom th,
+.table-custom td {
+    vertical-align: middle;
+}
+
+.table-custom thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+.table-custom th,
+.table-custom td {
+    padding: 15px;
+}
+
+.table-custom .btn {
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+#room-map{
+    padding: 1rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
 }

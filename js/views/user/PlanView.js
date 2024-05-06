@@ -14,7 +14,7 @@ function loadData() {
     loadData();   
 
 
-let courses = [
+/* let courses = [
     { uc: "Algoritmia e Estruturas de Dados", period: "1º Semestre" },
     { uc: "Fundamentos de Design", period: "1º Semestre" },
     { uc: "Matemática I", period: "1º Semestre" },
@@ -28,4 +28,4 @@ let courses = [
 ];
 
 // Salvar dados na localStorage
-localStorage.setItem("courses", JSON.stringify(courses));
+localStorage.setItem("courses", JSON.stringify(courses)); */

@@ -7,11 +7,14 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 
     if (isAdmin(email, password)) {
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('loggedInUserEmail', email);
         window.location.href = '/html/admin/UsersManageView.html';
     } else {
         checkUserLogin(email, password);
     }
 });
+
+
 
 function checkUserLogin(email, password) {
     const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
@@ -21,6 +24,7 @@ function checkUserLogin(email, password) {
         localStorage.setItem('nameUser', user.name);
         localStorage.setItem('userRole', 'user');
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('loggedInUserEmail', email);
         window.location.href = '/html/user/AboutView.html';
     } else if (user) {
         console.log('Incorrect password. Please try again.');
@@ -42,6 +46,7 @@ function isAdmin(email, password) {
 
     if (email === adminCredentials.email && password === adminCredentials.password) {
         localStorage.setItem('userRole', 'admin');
+        localStorage.setItem('loggedInUserEmail', email);
         return true;
     }
 

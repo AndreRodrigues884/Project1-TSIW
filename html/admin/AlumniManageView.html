@@ -7,6 +7,7 @@
     <title>Alumni Manage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -20,31 +21,91 @@
             <div class="collapse navbar-collapse ms-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav mx-auto gap-5">
                     <li class="nav-item mx-auto">
-                        <a class="nav-link" href="/html/admin/UsersManageView.html">Gerir Utilizadores</a>
+                        <a class="nav-link main-text-color" href="/html/admin/UsersManageView.html">Gerir Utilizadores</a>
                     </li>
                     <li class="nav-item mx-auto">
-                        <a class="nav-link" href="/html/admin/InformationManageView.html">Gerir Conteúdo</a>
+                        <a class="nav-link main-text-color" href="/html/admin/InformationManageView.html">Gerir Conteúdo</a>
                     </li>
                     <li class="nav-item mx-auto">
-                        <a class="nav-link" href="/html/admin/PlanManageView.html">Gerir Plano Curricular</a>
+                        <a class="nav-link main-text-color" href="/html/admin/PlanManageView.html">Gerir Plano Curricular</a>
                     </li>
                     <li class="nav-item mx-auto">
-                      <a class="nav-link" href="/html/admin/ActivitiesManageView.html">Gerir Atividades</a>
+                      <a class="nav-link main-text-color" href="/html/admin/ActivitiesManageView.html">Gerir Atividades</a>
                   </li>
                     <li class="nav-item mx-auto">
-                        <a class="nav-link main-color" href="/html/admin/AlumniManageView.html">Gerir Testemunhos</a>
+                        <a class="nav-link main-text-color" href="/html/admin/AlumniManageView.html">Gerir Testemunhos</a>
                     </li>
                     <li class="nav-item mx-auto">
-                        <a class="nav-link main-color" id="welcomeMessage"></a>
+                        <a class="nav-link main-text-color" id="welcomeMessage"></a>
                     </li>
                 </ul>
             </div>
-            <button id="logoutButton" class="btn main-color" style="border-color: #C95534;">Logout</button>
+            <button id="logoutButton" class="btn main-text-color purple">Logout</button>
         </div>
     </nav>
 
-    <p id="description">Alumni</p>
+    <div class="px-5 mt-5">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h4 id="addAlumni" class="main-text-color">Adicionar <i class="bi bi-plus-circle"></i></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-inline">
+        <div class="row justify-content-center p-4">
+            <div class="col">
+                <table class="table table-bordered table-striped w-100 mx-auto table-custom" id="ucTable">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Titulo</th>
+                            <th>Texto</th>
+                            <th>Data</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os dados da tabela seriam preenchidos dinamicamente aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addAlumniModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Adicionar Testemunho Alumni</h5>
+                    <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUCForm">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" id="imgInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="titleInput" placeholder="Titulo" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="textInput" placeholder="Texto" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="dateInput" placeholder="Data de Publicação" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="addAlumniButton">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-<script type="module" src="/js/models/UserModel.js"></script>
+<script type="module" src="/js/models/AdminModel.js"></script>
+<script type="module" src="/js/views/admin/alumni.js"></script>
 
 </html>
