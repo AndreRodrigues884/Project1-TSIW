@@ -6,7 +6,9 @@ body{
     background-color: #171717;
 }
 
-
+.sec-font{
+    font-family: "Open Sans", sans-serif;;
+}
 
 .border-rounded {
     border: 2px solid #ced4da; /* Cor da borda cinza */
@@ -53,8 +55,19 @@ body{
     width: auto;
   }
 
+  .form-bg {
+    background-image: url('/img/contact_form_bc.png');
+    background-size: cover;
+    padding: 50px;
+  }
 
+.bc-user-plan{
+    background-color: #171717;
+}
 
+table{
+    background-color: #171717;
+}
 
 
 .table-custom {

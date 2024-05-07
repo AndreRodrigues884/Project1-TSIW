@@ -46,12 +46,12 @@
     <div class="container d-inline">
       <div class="row row-custom">
           <div class="col col-custom">
-              <table class="table table-bordered table-striped w-75 mx-auto table-custom" id="userTable">
+              <table class="table table-bordered table-striped w-75 mx-auto table-custom" id="formTable">
                   <thead>
                       <tr>
-                          <th>ID</th>
+                          <th>Nome</th>
                           <th>Email</th>
-                          <th>Detalhes</th>
+                          <th>Mensagem</th>
                           <th>Eliminar</th>
                       </tr>
                   </thead>
@@ -63,42 +63,12 @@
       </div>
   </div>
   
-  <!-- Componente 3 -->
-  <!-- Modal -->
-  <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Detalhes do User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="col">
-                  <p class="text-secondary" id="modalId"></p>
-                  <p class="text-secondary" id="modalUserName"></p>
-                  <p class="text-secondary" id="modalUserDob"></p>
-                  <p class="text-secondary" id="modalUserLocation"></p>
-                  <p class="text-secondary" id="modalUserSex"></p>
-                  <p class="text-secondary" id="modalUserEmail"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="closeModal" data-bs-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
   
 
    
 </body>
-<script type="module" src="/js/views/admin/users.js"></script>
 <script type="module" src="/js/models/AdminModel.js"></script>
+<script type="module" src="/js/views/admin/form.js"></script>
+
 
 </html>

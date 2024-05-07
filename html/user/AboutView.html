@@ -10,8 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-        <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +28,8 @@
                         <a class="nav-link main-text-color" href="/html/user/PlanView.html">Plano Curricular</a>
                     </li>
                     <li class="nav-item dropdown mx-auto">
-                        <a class="nav-link dropdown-toggle main-text-color" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle main-text-color" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Atividades
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,19 +52,90 @@
         </div>
     </nav>
 
+    <!-- Graficos -->
 
-    <div class="position-fixed bottom-0 end-0 p-3">
-        <a href="/html/user/EscapeRoomView.html"><div class="main-text-color text-white p-3">
-            Escape Room
-        </div></a>
+    <div class="container p-4">
+        <h2 class="main-text-color">Empregabilidade</h2>
+        <div class="row p-4">
+            <div class="col-md-3"><canvas id="Graph1"></canvas></div>
+            <div class="col-md-3"><canvas id="Graph2"></canvas></div>
+            <div class="col-md-3"><canvas id="Graph3"></canvas></div>
+            <div class="col-md-3"><canvas id="Graph4"></canvas></div>
+        </div>
+        <div class="row p-4">
+            <div class="col-md-3 sec-text-color sec-font d-flex justify-content-center">Empregado</div>
+            <div class="col-md-3 sec-text-color sec-font d-flex justify-content-center">Estuda</div>
+            <div class="col-md-3 sec-text-color sec-font d-flex justify-content-center">Outro/ Não procura Emprego</div>
+            <div class="col-md-3 sec-text-color sec-font d-flex justify-content-center">Desempregado</div>
+        </div>
+    </div>
+
+    <!-- Fim Graficos -->
+
+
+<!-- Contact Form -->
+
+<div class="container-fluid w-75">
+    <div class="row p-4 form-bg">
+      <!-- Coluna do formulário -->
+      <div class="col-md-6">
+        <h2 class="text-center p-4 main-text-color">Entre em Contato Connosco!</h2>
+        <form id="myForm">
+          <div class="form-group p-4">
+            <label class="main-text-color" for="name">Nome:</label>
+            <input type="text" class="form-control" id="name" placeholder="Digite seu nome">
+          </div>
+          <div class="form-group p-4">
+            <label class="main-text-color" for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+          </div>
+          <div class="form-group p-4">
+            <label class="main-text-color" for="message">Mensagem:</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Digite sua mensagem"></textarea>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn main-text-color purple w-75">Enviar</button>
+        </div>
+          
+        </form>
+      </div>
+      <!-- Coluna das informações -->
+      <div class="col-md-6 sec-background w-50 h-50">
+        <div class="d-flex justify-content-center d-flex flex-column justify-content-center align-items-center main-text-color">
+          <h3>Info</h3>
+          <p>geral@esmad.ipp.pt</p>
+          <p>+351 252 291 700</p>
+          <p>Rua D. Sancho I, n.º 981</p>
+          <p>4480-876 Vila do Conde</p>
+          <p>08:00 - 17:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Fim Form -->
+
+
+
+
+    <div class="position-fixed bottom-0 end-0 p-3 purple">
+        <a href="/html/user/EscapeRoomView.html">
+            <div class="main-text-color text-white p-3">
+                Escape Room
+            </div>
+        </a>
     </div>
 
     <footer class="footer mt-auto py-3 footer-background">
         <div class="container text-center">
-            <span class="text-white">Seu texto do rodapé aqui.</span>
+            <img src="/img/logo_pporto.png" alt="">
+            <span class="text-white">www.esmad.ipp.pt</span>
         </div>
     </footer>
 </body>
 <script type="module" src="/js/models/UserModel.js"></script>
+<script type="module" src="/js/components/graph.js"></script>
+<script type="module" src="/js/components/contact_form.js"></script>
 
 </html>
