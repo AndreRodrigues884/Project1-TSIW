@@ -33,7 +33,7 @@
                             Atividades
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Eventos</a></li>
+                            <li><a class="dropdown-item" href="/html/user/EventsView.html">Eventos</a></li>
                             <li><a class="dropdown-item" href="#">Prémios</a></li>
                             <li><a class="dropdown-item" href="#">Projetos</a></li>
                         </ul>
@@ -51,6 +51,14 @@
             <button id="logoutButton" class="btn main-text-color purple">Logout</button>
         </div>
     </nav>
+
+    <!-- Secção 1 -->
+
+    <div id="firstSection" class="">
+        
+    </div>
+
+    <!-- Fim Secção 1 -->
 
     <!-- Graficos -->
 
@@ -73,48 +81,50 @@
     <!-- Fim Graficos -->
 
 
-<!-- Contact Form -->
+    <!-- Contact Form -->
 
-<div class="container-fluid w-75">
-    <div class="row p-4 form-bg">
-      <!-- Coluna do formulário -->
-      <div class="col-md-6">
-        <h2 class="text-center p-4 main-text-color">Entre em Contato Connosco!</h2>
-        <form id="myForm">
-          <div class="form-group p-4">
-            <label class="main-text-color" for="name">Nome:</label>
-            <input type="text" class="form-control" id="name" placeholder="Digite seu nome">
-          </div>
-          <div class="form-group p-4">
-            <label class="main-text-color" for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Digite seu email">
-          </div>
-          <div class="form-group p-4">
-            <label class="main-text-color" for="message">Mensagem:</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Digite sua mensagem"></textarea>
-          </div>
-          <div class="d-flex justify-content-center">
-            <button type="submit" class="btn main-text-color purple w-75">Enviar</button>
+    <div class="container-fluid w-75">
+        <div class="row p-4 form-bg">
+            <!-- Coluna do formulário -->
+            <div class="col-md-6">
+                <h2 class="text-center p-4 main-text-color">Entre em Contato Connosco!</h2>
+                <form id="myForm">
+                    <div class="form-group p-4">
+                        <label class="main-text-color" for="name">Nome:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Digite seu nome">
+                    </div>
+                    <div class="form-group p-4">
+                        <label class="main-text-color" for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                    </div>
+                    <div class="form-group p-4">
+                        <label class="main-text-color" for="message">Mensagem:</label>
+                        <textarea class="form-control" id="message" rows="5"
+                            placeholder="Digite sua mensagem"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn main-text-color purple w-75">Enviar</button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- Coluna das informações -->
+            <div class="col-md-6 sec-background w-50 h-50">
+                <div
+                    class="d-flex justify-content-center d-flex flex-column justify-content-center align-items-center main-text-color">
+                    <h3>Info</h3>
+                    <p>geral@esmad.ipp.pt</p>
+                    <p>+351 252 291 700</p>
+                    <p>Rua D. Sancho I, n.º 981</p>
+                    <p>4480-876 Vila do Conde</p>
+                    <p>08:00 - 17:00</p>
+                </div>
+            </div>
         </div>
-          
-        </form>
-      </div>
-      <!-- Coluna das informações -->
-      <div class="col-md-6 sec-background w-50 h-50">
-        <div class="d-flex justify-content-center d-flex flex-column justify-content-center align-items-center main-text-color">
-          <h3>Info</h3>
-          <p>geral@esmad.ipp.pt</p>
-          <p>+351 252 291 700</p>
-          <p>Rua D. Sancho I, n.º 981</p>
-          <p>4480-876 Vila do Conde</p>
-          <p>08:00 - 17:00</p>
-        </div>
-      </div>
     </div>
-  </div>
 
 
-<!-- Fim Form -->
+    <!-- Fim Form -->
 
 
 
@@ -135,6 +145,7 @@
     </footer>
 </body>
 <script type="module" src="/js/models/UserModel.js"></script>
+<script type="module" src="/js/views/user/AboutView.js"></script>
 <script type="module" src="/js/components/graph.js"></script>
 <script type="module" src="/js/components/contact_form.js"></script>
 

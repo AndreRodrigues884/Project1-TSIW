@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             detailsButton.addEventListener('click', () => showDetails(index + 1));
             cellEdit.appendChild(detailsButton);
 
-            const cellDelete = row.insertCell();
+            const cellDelete = row.insertCell(5);
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Eliminar';
             deleteButton.classList.add('btn', 'btn-danger');
