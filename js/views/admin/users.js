@@ -12,26 +12,41 @@ function displayUsers() {
 
         // Coluna de E-mail
         const cellEmail = row.insertCell(1);
-        cellEmail.textContent = user.email;
+        cellEmail.textContent = user.name;
 
         // Coluna de Detalhes
         const cellDetails = row.insertCell(2);
-        const detailsButton = document.createElement('button');
-        detailsButton.textContent = 'Detalhes';
-        detailsButton.classList.add('btn', 'btn-primary');
+        const detailsButton = document.createElement('h6');
+        detailsButton.textContent = 'Ver detalhes';
+        detailsButton.classList.add('blue');
         detailsButton.addEventListener('click', () => showDetails(index + 1));
         cellDetails.appendChild(detailsButton);
 
         // Coluna de Eliminar
         const cellDelete = row.insertCell(3);
-        const deleteButton = document.createElement('button');
+        const deleteButton = document.createElement('h6');
         deleteButton.textContent = 'Eliminar';
-        deleteButton.classList.add('btn', 'btn-danger');
+        deleteButton.classList.add('red');
         deleteButton.addEventListener('click', () => deleteUser(index + 1));
         cellDelete.appendChild(deleteButton);
     });
 }
 
+/* 
+document.getElementById('datatable-search-input').addEventListener('input', (e) => {
+    const searchTerm = e.target.value.trim().toLowerCase();
+    const userRows = document.querySelectorAll('#userTable tbody tr');
+
+    userRows.forEach(row => {
+        const userName = row.cells[1].textContent.toLowerCase();;
+        if (userName.includes(searchTerm)) {
+            button.style.display = 'table-row';
+        } else {
+            button.style.display = 'none';
+        }
+    });
+});
+ */
 let modal = document.getElementById('userDetailsModal')
 let closeModal = document.getElementById('closeModal');
 
@@ -50,7 +65,7 @@ function showDetails(userId) {
     } else {
         console.log('User não encontrado');
     }
- 
+
 }
 
 function hideModal() {
@@ -60,23 +75,32 @@ function hideModal() {
 
 closeModal.addEventListener('click', hideModal);
 
-
-
-function deleteUser(userId) {
-    const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
-    
-    // Remove o usuário da lista de formulários armazenados
-    const updatedFormData = storedFormData.filter((_user, index) => index !== userId - 1);
-    localStorage.setItem('formData', JSON.stringify(updatedFormData));
-    
-    // Remove a linha correspondente da tabela
+function refreshTable() {
     const userTable = document.getElementById('userTable');
-    userTable.deleteRow(userId);
-
-    // Atualiza os índices das linhas restantes
     for (let i = userId; i < userTable.rows.length; i++) {
         userTable.rows[i].cells[0].textContent = i;
     }
 }
+
+function deleteUser(userId) {
+
+    const isConfirmed = confirm("Tem certeza que deseja eliminar o utilizador?");
+
+    if (isConfirmed) {
+        const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+
+        const updatedFormData = storedFormData.filter((_user, index) => index !== userId - 1);
+        localStorage.setItem('formData', JSON.stringify(updatedFormData));
+
+        // Remove a linha correspondente da tabela
+        const userTable = document.getElementById('userTable');
+        userTable.deleteRow(userId);
+        refreshTable();
+       
+    }
+
+}
+
+
 
 displayUsers();

@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
             cellPeriod.textContent = uc.period;
 
             const cellEdit = row.insertCell(2);
-            const detailsButton = document.createElement('button');
+            const detailsButton = document.createElement('h6');
             detailsButton.textContent = 'Editar';
-            detailsButton.classList.add('btn', 'btn-primary');
+            detailsButton.classList.add('blue');
             detailsButton.addEventListener('click', () => showDetails(index + 1));
             cellEdit.appendChild(detailsButton);
 
             const cellDelete = row.insertCell(3);
-            const deleteButton = document.createElement('button');
+            const deleteButton = document.createElement('h6');
             deleteButton.textContent = 'Eliminar';
-            deleteButton.classList.add('btn', 'btn-danger');
+            deleteButton.classList.add('red');
             deleteButton.addEventListener('click', () => deleteUC(index + 1));
             cellDelete.appendChild(deleteButton);
         });

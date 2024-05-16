@@ -20,9 +20,9 @@ function displayForms() {
 
         // Coluna de Eliminar
         const cellDelete = row.insertCell(3);
-        const deleteButton = document.createElement('button');
+        const deleteButton = document.createElement('h6');
         deleteButton.textContent = 'Eliminar';
-        deleteButton.classList.add('btn', 'btn-danger');
+        deleteButton.classList.add('red');
         deleteButton.addEventListener('click', () => deleteForm(index + 1));
         cellDelete.appendChild(deleteButton);
     });

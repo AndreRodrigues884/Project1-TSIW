@@ -45,6 +45,29 @@ body{
     background-color: #551473;
 }
 
+.text-purple{
+    color: #551473;
+}
+
+.blue{
+    color: #007bff;
+}
+
+.red{
+    color: rgb(251, 24, 24);
+}
+
+.btn:hover {
+    background-color: #551473;
+    color: #F5F5F5;
+}
+
+.nav-link:hover{
+    color: #F5F5F5;
+    background-color: #551473;
+    border-radius: 0.5rem;
+}
+
 
 .footer-background{
     background-color: #000000;
