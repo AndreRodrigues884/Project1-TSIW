@@ -87,18 +87,21 @@ document.addEventListener('DOMContentLoaded', function () {
     function deleteUC(ucId) {
         const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
 
-        const updatedFormData = storedFormData.filter((_uc, index) => index !== ucId - 1);
-        localStorage.setItem('courses', JSON.stringify(updatedFormData));
+        const isConfirmed = confirm("Tem certeza que deseja eliminar esta UC?");
 
-        const ucTable = document.getElementById('ucTable');
-        ucTable.deleteRow(ucId);
-        location.reload();
-        editTable();
+        if (isConfirmed) {
+            const updatedFormData = storedFormData.filter((_uc, index) => index !== ucId - 1);
+            localStorage.setItem('courses', JSON.stringify(updatedFormData));
+
+            const ucTable = document.getElementById('ucTable');
+            ucTable.deleteRow(ucId);
+            refreshTable();
+        }
     }
 
-    function editTable() {
+    function refreshTable() {
         const ucTable = document.getElementById('ucTable');
-        for (let i = 1; i < ucTable.rows.length; i++) {
+        for (let i = ucId; i < ucTable.rows.length; i++) {
             ucTable.rows[i].cells[0].textContent = i;
         }
     }

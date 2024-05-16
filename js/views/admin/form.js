@@ -28,9 +28,9 @@ function displayForms() {
     });
 }
 
-function editTable() {
+function refreshTable() {
     const formTable = document.getElementById('formTable');
-    for (let i = 1; i < formTable.rows.length; i++) {
+    for (let i = formID; i < formTable.rows.length; i++) {
         formTable.rows[i].cells[0].textContent = i;
     }
 }
@@ -38,13 +38,16 @@ function editTable() {
 function deleteForm(formID) {
     const storedFormData = JSON.parse(localStorage.getItem('forms')) || [];
 
-    const updatedFormData = storedFormData.filter((_form, index) => index !== formID - 1);
-    localStorage.setItem('forms', JSON.stringify(updatedFormData));
+    const isConfirmed = confirm("Tem certeza que deseja eliminar este formulário?");
 
-    const formTable = document.getElementById('formTable');
-    formTable.deleteRow(formID);
-    location.reload();
-    editTable();
+    if (isConfirmed) {
+        const updatedFormData = storedFormData.filter((_form, index) => index !== formID - 1);
+        localStorage.setItem('forms', JSON.stringify(updatedFormData));
+
+        const formTable = document.getElementById('formTable');
+        formTable.deleteRow(formID);
+        refreshTable();
+    }
 }
 
 displayForms();

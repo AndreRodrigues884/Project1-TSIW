@@ -24,9 +24,10 @@ document.getElementById('registrationForm').addEventListener('submit', function 
 function checkUserRegister(formData) {
     const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
     const emailExists = storedFormData.some(user => user.email === formData.email);
+    const errorUserCreated = document.getElementById('erroruserCreated');
 
     if (emailExists) {
-        console.log('User Already Created');
+        errorUserCreated.textContent = 'Este utilizador já tem uma conta registada';
     } else {
         storedFormData.push(formData);
         localStorage.setItem('formData', JSON.stringify(storedFormData));

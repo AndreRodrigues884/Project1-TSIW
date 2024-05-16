@@ -19,6 +19,8 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 function checkUserLogin(email, password) {
     const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
     const user = storedFormData.find(user => user.email === email);
+    const errorPasswordMessage = document.getElementById('error-pwd');
+    const errorEmailMessage = document.getElementById('error-email');
 
     if (user && user.password === password) {
         localStorage.setItem('nameUser', user.name);
@@ -27,11 +29,11 @@ function checkUserLogin(email, password) {
         localStorage.setItem('loggedInUserEmail', email);
         window.location.href = '/html/user/AboutView.html';
     } else if (user) {
-        console.log('Incorrect password. Please try again.');
+        errorPasswordMessage.textContent = 'Password incorreta, tente novamanete';
         localStorage.setItem('isLoggedIn', 'false');
         loginClearForm();
     } else {
-        console.log('Email not found. Please register.');
+        errorEmailMessage.textContent = 'Email não encontrado';
         localStorage.setItem('isLoggedIn', 'false');
         loginClearForm();
     }

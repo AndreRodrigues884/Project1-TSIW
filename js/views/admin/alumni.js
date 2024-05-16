@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const imgElement = document.createElement('img');
             imgElement.src = alumni.img;
             imgElement.classList.add('img-fluid', 'rounded-circle', 'img-thumbnail');
-            imgElement.style.width = '200px'; 
+            imgElement.style.width = '200px';
             imgElement.style.height = '200px';
             cellImg.appendChild(imgElement);
 
@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
             cellDate.textContent = alumni.date;
 
             const cellEdit = row.insertCell(4);
-            const detailsButton = document.createElement('button');
+            const detailsButton = document.createElement('h6');
             detailsButton.textContent = 'Editar';
-            detailsButton.classList.add('btn', 'btn-primary');
+            detailsButton.classList.add('blue');
             detailsButton.addEventListener('click', () => showDetails(index + 1));
             cellEdit.appendChild(detailsButton);
 
             const cellDelete = row.insertCell(5);
-            const deleteButton = document.createElement('button');
+            const deleteButton = document.createElement('h6');
             deleteButton.textContent = 'Eliminar';
-            deleteButton.classList.add('btn', 'btn-danger');
+            deleteButton.classList.add('red');
             deleteButton.addEventListener('click', () => deleteAlumni(index + 1));
             cellDelete.appendChild(deleteButton);
         });
@@ -94,18 +94,23 @@ document.addEventListener('DOMContentLoaded', function () {
     function deleteAlumni(alumniId) {
         const storedFormData = JSON.parse(localStorage.getItem('alumni')) || [];
 
-        const updatedFormData = storedFormData.filter((_alumni, index) => index !== alumniId - 1);
-        localStorage.setItem('alumni', JSON.stringify(updatedFormData));
+        const isConfirmed = confirm("Tem certeza que deseja eliminar este Testemunho?");
 
-        const ucTable = document.getElementById('ucTable');
-        ucTable.deleteRow(alumniId);
-        location.reload();
-        editTable();
+        if (isConfirmed) {
+            const updatedFormData = storedFormData.filter((_alumni, index) => index !== alumniId - 1);
+            localStorage.setItem('alumni', JSON.stringify(updatedFormData));
+
+            const ucTable = document.getElementById('ucTable');
+            ucTable.deleteRow(alumniId);
+            refreshTable();
+        }
+
+
     }
 
-    function editTable() {
+    function refreshTable() {
         const ucTable = document.getElementById('ucTable');
-        for (let i = 1; i < ucTable.rows.length; i++) {
+        for (let i = alumniId; i < ucTable.rows.length; i++) {
             ucTable.rows[i].cells[0].textContent = i;
         }
     }

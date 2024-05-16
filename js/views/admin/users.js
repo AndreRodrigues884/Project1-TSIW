@@ -92,7 +92,6 @@ function deleteUser(userId) {
         const updatedFormData = storedFormData.filter((_user, index) => index !== userId - 1);
         localStorage.setItem('formData', JSON.stringify(updatedFormData));
 
-        // Remove a linha correspondente da tabela
         const userTable = document.getElementById('userTable');
         userTable.deleteRow(userId);
         refreshTable();

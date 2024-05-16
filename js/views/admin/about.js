@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 cellText.textContent = section.text;
             }
 
-
             const cellImg = row.insertCell(2);
             const imgElement = document.createElement('img');
             imgElement.src = section.img;
@@ -121,18 +120,21 @@ document.addEventListener('DOMContentLoaded', function () {
     function deleteSection(sectionId) {
         const storedFormData = JSON.parse(localStorage.getItem('firstSection')) || [];
 
-        const updatedFormData = storedFormData.filter((_section, index) => index !== sectionId - 1);
-        localStorage.setItem('firstSection', JSON.stringify(updatedFormData));
+        const isConfirmed = confirm("Tem certeza que deseja eliminar esta secção?");
 
-        const sectionTable = document.getElementById('sectionTable');
-        sectionTable.deleteRow(sectionId);
-        location.reload();
-        editTable();
+        if (isConfirmed) {
+            const updatedFormData = storedFormData.filter((_section, index) => index !== sectionId - 1);
+            localStorage.setItem('firstSection', JSON.stringify(updatedFormData));
+
+            const sectionTable = document.getElementById('sectionTable');
+            sectionTable.deleteRow(sectionId);
+            refreshTable();
+        }
     }
 
-    function editTable() {
+    function refreshTable() {
         const sectionTable = document.getElementById('sectionTable');
-        for (let i = 1; i < sectionTable.rows.length; i++) {
+        for (let i = sectionId; i < sectionTable.rows.length; i++) {
             sectionTable.rows[i].cells[0].textContent = i;
         }
     }
