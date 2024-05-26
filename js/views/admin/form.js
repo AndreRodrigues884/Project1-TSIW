@@ -6,19 +6,15 @@ function displayForms() {
     storedFormData.forEach((form, index) => {
         const row = formTable.insertRow(-1);
 
-        // Coluna de ID
         const cellName = row.insertCell(0);
         cellName.textContent = form.name;
 
-        // Coluna de E-mail
         const cellEmail = row.insertCell(1);
         cellEmail.textContent = form.email;
 
-        // Coluna de E-mail
         const cellMessage = row.insertCell(2);
         cellMessage.textContent = form.message;
 
-        // Coluna de Eliminar
         const cellDelete = row.insertCell(3);
         const deleteButton = document.createElement('h6');
         deleteButton.textContent = 'Eliminar';

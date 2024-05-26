@@ -26,6 +26,35 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
-
     loadFirstSection();
+
+    function loadAlumniCard() {
+        let data = JSON.parse(localStorage.getItem('alumni')) || [];
+        let alumniCard = document.getElementById("alumniCard");
+        alumniCard.innerHTML = '';
+        data.slice(0, 3).forEach(function (item, index) {
+            let cardDiv = document.createElement("div");
+            cardDiv.classList.add("card", "m-3");
+            cardDiv.innerHTML = `
+            <div class="card d-flex">
+                <img src="${item.img}" class="card-img-top rounded-circle img-fluid p-4" style="width: 200px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-center">${item.title}</h5>
+                </div>
+            <div class="p-4 d-flex justify-content-center">
+                <a href='/html/user/AlumniView.html'><button class="btn btn-primary p-2 w-100 purple border-0">Ver</button></a>
+            </div>
+            </div>
+        `;
+            alumniCard.appendChild(cardDiv);
+
+            let button = cardDiv.querySelector("button");
+            button.addEventListener("click", function () {
+                loadDataIntoModal(index);
+            });
+        })
+    }
+
+
+    loadAlumniCard();
 });

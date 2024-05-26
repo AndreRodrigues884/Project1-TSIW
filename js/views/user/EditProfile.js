@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('sex').value = userData.sex;
             document.getElementById('location').value = userData.location;
             document.getElementById('email').value = userData.email;
-            document.getElementById('password').value = userData.password;
         }
     }
 
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const newSex = document.getElementById('sex').value;
         const newLocation = document.getElementById('location').value;
         const newEmail = document.getElementById('email').value;
-        const newPassword = document.getElementById('password').value;
 
         // Atualizar os dados do usuário na localStorage
         const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     sex: newSex,
                     location: newLocation,
                     email: newEmail,
-                    password: newPassword
                 };
             }
             return user;

@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             localStorage.setItem('courses', JSON.stringify(storedFormData));
             location.reload();
-            editTable();
+            refreshTable();
 
             document.getElementById('ucInput').value = '';
             document.getElementById('periodInput').value = '';

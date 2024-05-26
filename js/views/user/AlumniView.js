@@ -1,15 +1,17 @@
-function loadDataIntoModal(index) {
-    let data = JSON.parse(localStorage.getItem('alumni')) || [];
-    
-    let modalCard = document.getElementById("modal-card");
-    modalCard.innerHTML = '';
+document.addEventListener('DOMContentLoaded', function () {
 
-    if (index >= 0 && index < data.length) {
-        let item = data[index];
-        
-        let cardDiv = document.createElement("div");
-        cardDiv.classList.add("card", "m-2");
-        cardDiv.innerHTML = `
+    function loadDataIntoModal(index) {
+        let data = JSON.parse(localStorage.getItem('alumni')) || [];
+
+        let modalCard = document.getElementById("modal-card");
+        modalCard.innerHTML = '';
+
+        if (index >= 0 && index < data.length) {
+            let item = data[index];
+
+            let cardDiv = document.createElement("div");
+            cardDiv.classList.add("card", "m-2");
+            cardDiv.innerHTML = `
             <img src="${item.img}" class="card-img-top rounded-circle p-4 w-50">
             <div class="card-body">
                 <h5 class="card-title">${item.title}</h5>
@@ -17,10 +19,11 @@ function loadDataIntoModal(index) {
             </div>
             <p class="card-date">${item.date}</p> <!-- Mostra a data -->
         `;
-        modalCard.appendChild(cardDiv);
+            modalCard.appendChild(cardDiv);
+        }
     }
-}
-document.addEventListener('DOMContentLoaded', function () {
+
+
     function loadAlumniCard() {
         let data = JSON.parse(localStorage.getItem('alumni')) || [];
         let alumniCard = document.getElementById("alumniCard");
@@ -42,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alumniCard.appendChild(cardDiv);
 
             let button = cardDiv.querySelector("button");
-            button.addEventListener("click", function() {
+            button.addEventListener("click", function () {
                 loadDataIntoModal(index);
             });
         })

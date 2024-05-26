@@ -14,8 +14,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     }
 });
 
-
-
 function checkUserLogin(email, password) {
     const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
     const user = storedFormData.find(user => user.email === email);
@@ -51,7 +49,6 @@ function isAdmin(email, password) {
         localStorage.setItem('loggedInUserEmail', email);
         return true;
     }
-
     return false;
 }
 

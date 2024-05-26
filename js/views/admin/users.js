@@ -100,6 +100,4 @@ function deleteUser(userId) {
 
 }
 
-
-
 displayUsers();

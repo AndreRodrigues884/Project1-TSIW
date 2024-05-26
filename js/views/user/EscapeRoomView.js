@@ -1,4 +1,22 @@
-let area1 = document.getElementById('area1');
+function escapeMessage() {
+    let loginStatus = localStorage.getItem('isLoggedIn');
+    let nameUser = localStorage.getItem('nameUser');
+    let userRole = localStorage.getItem('userRole');
+    let escapeMessage = document.getElementById('escapeMessage');
 
-    // Defina o background da área para ser a imagem desejada
-    area1.style.image = 'url("/img/objeto1.png")';
+    if (escapeMessage) {
+        if (userRole === 'user' && loginStatus === 'true') {
+            escapeMessage.textContent += 'Bem-vindo ao Escape Room, ' + nameUser + '!';
+        } else {
+            escapeMessage.textContent += 'Precisa de iniciar sessão para participar neste Escape Room!';
+            let loginButton = document.createElement('button');
+            loginButton.textContent = 'Ir para Login';
+            loginButton.addEventListener('click', function () {
+                window.location.href = '/html/LoginView.html';
+            });
+            escapeMessage.appendChild(loginButton);
+        }
+    };
+}
+
+escapeMessage()

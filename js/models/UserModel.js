@@ -1,3 +1,5 @@
+
+
 function userMessage() {
     let nameUser = localStorage.getItem('nameUser');
     let userRole = localStorage.getItem('userRole');
@@ -12,17 +14,22 @@ function userMessage() {
     };
 }
 
-let loginStatus = localStorage.getItem('isLoggedIn');
-let login = document.getElementById('loginButton');
-let logout = document.getElementById('logoutButton');
+
 
 function updateButtonStatus() {
+    let loginStatus = localStorage.getItem('isLoggedIn');
+    let loginButton = document.getElementById('loginButton');
+    let logoutButton = document.getElementById('logoutButton');
+    let editIcon = document.getElementById('editIcon');
+
     if (loginStatus === 'true') {
         loginButton.style.display = 'none';
         logoutButton.style.display = 'block';
+        editIcon.style.display = 'block';
     } else {
         loginButton.style.display = 'block';
         logoutButton.style.display = 'none';
+        editIcon.style.display = 'none';
     }
 }
 
@@ -38,12 +45,14 @@ function logoutFunc() {
     location.reload();
 }
 
-loginButton.addEventListener('click', function() {
-    window.location.href = '/html/LoginView.html';
-});
+    let loginButton = document.getElementById('loginButton');
+    let logoutButton = document.getElementById('logoutButton');
+    
+    loginButton.addEventListener('click', function () {
+        window.location.href = '/html/LoginView.html';
+    });
 
-// Add event listener to the logout button
-logoutButton.addEventListener('click', handleLogout);
+    logoutButton.addEventListener('click', handleLogout);
 
-updateButtonStatus();
-userMessage();
+    updateButtonStatus();
+    userMessage();

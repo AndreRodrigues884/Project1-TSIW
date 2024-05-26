@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-
     function hideModal() {
         const closeModal = new bootstrap.Modal(document.getElementById('closeModal'));
         closeModal.hide();
