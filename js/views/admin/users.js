@@ -32,21 +32,7 @@ function displayUsers() {
     });
 }
 
-/* 
-document.getElementById('datatable-search-input').addEventListener('input', (e) => {
-    const searchTerm = e.target.value.trim().toLowerCase();
-    const userRows = document.querySelectorAll('#userTable tbody tr');
 
-    userRows.forEach(row => {
-        const userName = row.cells[1].textContent.toLowerCase();;
-        if (userName.includes(searchTerm)) {
-            button.style.display = 'table-row';
-        } else {
-            button.style.display = 'none';
-        }
-    });
-});
- */
 let modal = document.getElementById('userDetailsModal')
 let closeModal = document.getElementById('closeModal');
 

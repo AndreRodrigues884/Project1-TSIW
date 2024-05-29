@@ -17,42 +17,92 @@
 </head>
 
 <body>
-    <nav id="nav" class="navbar navbar-expand-sm navbar-custom navbar-background">
-        <div class="container-fluid">
-            <a class="navbar-brand">TSIW</a>
-            <div class="collapse navbar-collapse ms-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav mx-auto gap-5">
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/UsersManageView.html">Gerir Utilizadores</a>
-                    </li>
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/InformationManageView.html">Gerir Conteúdo</a>
-                    </li>
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/PlanManageView.html">Gerir Plano Curricular</a>
-                    </li>
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/ActivitiesManageView.html">Gerir Atividades</a>
-                    </li>
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/AlumniManageView.html">Gerir Testemunhos</a>
-                    </li>
-                    <li class="nav-item mx-auto">
-                        <a class="nav-link main-text-color" href="/html/admin/FormManageView.html">Formulários</a>
-                    </li>
-                </ul>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/"
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <img src="/img/main_logo.png" alt="">
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" href="/html/admin/UsersManageView.html">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Gerir Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/html/admin/InformationManageView.html" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Gerir
+                                    Conteudo</span> </a>
+                        </li>
+                        <li>
+                            <a href="/html/admin/PlanManageView.html" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Gerir Plano
+                                    Curricular</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle px-0 align-middle" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Gerir Atividade</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li>
+                                    <a href="/html/admin/ProjectsManageView.html" class="dropdown-item">Projetos</a>
+                                </li>
+                                <li>
+                                    <a href="/html/admin/EventsManageView.html" class="dropdown-item">Eventos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/html/admin/AlumniManageView.html" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Gerir
+                                    Testemunhos</span></a>
+                        </li>
+                        <li>
+                            <a href="/html/admin/FormManageView.html" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Gerir
+                                    Formulários</span></a>
+                        </li>
+                    </ul>
+                    <div class="dropdown pb-4">
+                        <span id="logoutButton" class="btn main-text-color purple">Logout</span>
+                    </div>
+                </div>
             </div>
-            <button id="logoutButton" class="btn main-text-color purple">Logout</button>
-        </div>
-    </nav>
-
-    <div class="container mt-5">
-        <div class="d-flex justify-content-between">
-            <div>
-                <h4 id="addUC" class="main-text-color">Adicionar <i class="bi bi-plus-circle"></i></h4>
+            <div class="col py-3">
+                <div class="container mt-5">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 id="addUC" class="main-text-color">Adicionar <i class="bi bi-plus-circle"></i></h4>
+                        </div>
+                    </div>
+                    <div class="container d-inline">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <table class="table table-dark table-bordered table-striped w-75 mx-auto table-custom"
+                                    id="ucTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Unidade Curricular</th>
+                                            <th>Semestre</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Os dados da tabela seriam preenchidos dinamicamente aqui -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 
 
     <!-- Modal Adicionar UC -->
@@ -61,12 +111,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Adicionar Unidade Curricular</h5>
-                    <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addUCForm">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="ucInput" placeholder="Nome da Unidade Curricular:" required>
+                            <input type="text" class="form-control" id="ucInput"
+                                placeholder="Nome da Unidade Curricular:" required>
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="periodInput" placeholder="Semestre:" required>
@@ -74,7 +126,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" id="closeModal"
+                        data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary" id="addUCButton">Adicionar</button>
                 </div>
             </div>
@@ -82,25 +135,7 @@
     </div>
 
     <!-- Tabela de UCs -->
-    <div class="container d-inline">
-        <div class="row justify-content-center">
-            <div class="col">
-                <table class="table table-dark table-bordered table-striped w-75 mx-auto table-custom" id="ucTable">
-                    <thead>
-                        <tr>
-                            <th>Unidade Curricular</th>
-                            <th>Semestre</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Os dados da tabela seriam preenchidos dinamicamente aqui -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Modal Edit UC -->
     <div class="modal fade" id="ucDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -108,7 +143,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Detalhes da Unidade Curricular</h5>
-                    <button type="button" class="btn-close" id="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="closeModal" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">

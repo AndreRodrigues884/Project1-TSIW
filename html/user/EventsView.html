@@ -13,7 +13,9 @@
 <body>
     <nav id="nav" class="navbar navbar-expand-sm navbar-custom navbar-background">
         <div class="container-fluid">
-            <a class="navbar-brand">TSIW</a>
+            <a class="navbar-brand" href="">
+                <img src="/img/main_logo.png" alt="Logo" style="height: 40px;">
+            </a>
             <div class="collapse navbar-collapse ms-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav mx-auto gap-5">
                     <li class="nav-item mx-auto">
@@ -23,13 +25,14 @@
                         <a class="nav-link main-text-color" href="/html/user/PlanView.html">Plano Curricular</a>
                     </li>
                     <li class="nav-item dropdown mx-auto">
-                        <a class="nav-link dropdown-toggle main-text-color" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle main-text-color" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Atividades
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/html/user/EventsView.html">Eventos</a></li>
-                            <li><a class="dropdown-item" href="#">Prémios</a></li>
-                            <li><a class="dropdown-item" href="#">Projetos</a></li>
+                            <li><a class="dropdown-item" href="/html/user/PrizesView.html">Prémios</a></li>
+                            <li><a class="dropdown-item" href="/html/user/ProjectsView.html">Projetos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item mx-auto">
@@ -40,12 +43,21 @@
                     </li>
                 </ul>
             </div>
-            <a href="/html/user/EditProfileView.html"><i class="bi bi-person text-white p-4 fs-3"></i></a>
+            <a href="/html/user/EditProfileView.html"><i id="editIcon" class="bi bi-person text-white p-4 fs-3"></i></a>
             <button id="loginButton" class="btn main-text-color purple">Login</button>
             <button id="logoutButton" class="btn main-text-color purple">Logout</button>
         </div>
     </nav>
-    Activities
+
+    <div class="container mt-5" id="eventsContainer"></div>
+    
+    <footer class="footer mt-auto py-3 footer-background">
+        <div class="container text-center">
+            <img src="/img/logo_pporto.png" alt="">
+            <span class="text-white">www.esmad.ipp.pt</span>
+        </div>
+    </footer>
 </body>
 <script type="module" src="/js/models/UserModel.js"></script>
+<script type="module" src="/js/views/user/EventView.js"></script>
 </html>
