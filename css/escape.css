@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+}
+
+.bc_escape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Opcional: esconde partes da imagem que excedem a área visível */
+    width: 100vw;
+    height: 100vh;
+}
+
+.bc_escape img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block; /* Remove espaço extra ao redor da imagem */
+}

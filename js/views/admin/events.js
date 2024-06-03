@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const cellImg = row.insertCell(1);
             const imgElement = document.createElement('img');
             imgElement.src = event.img;
-            imgElement.classList.add('img-fluid', 'rounded-circle', 'img-thumbnail');
+            imgElement.classList.add('img-fluid', 'img-thumbnail');
             imgElement.style.width = '200px';
             imgElement.style.height = '200px';
             cellImg.appendChild(imgElement);

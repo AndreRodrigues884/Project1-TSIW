@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
         alumniCard.innerHTML = '';
         data.forEach(function (item, index) {
             let cardDiv = document.createElement("div");
-            cardDiv.classList.add("card");
+            cardDiv.className = 'col-12 col-md-3 d-flex justify-content-center';
             cardDiv.innerHTML = `
-            <div class="card d-flex">
+            <div class="card d-flex justify-content-center">
                 <img src="${item.img}" class="card-img-top rounded-circle img-fluid p-4" style="width: 200px; height: 200px;">
                 <div class="card-body">
                     <h5 class="card-title d-flex justify-content-center">${item.title}</h5>
