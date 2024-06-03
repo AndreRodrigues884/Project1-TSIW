@@ -1,59 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-body{
+body {
     font-family: "Archivo", sans-serif;
     background-color: #171717;
 }
 
-.sec-font{
-    font-family: "Open Sans", sans-serif;;
+.sec-font {
+    font-family: "Open Sans", sans-serif;
+    ;
 }
 
 .border-rounded {
-    border: 2px solid #ced4da; /* Cor da borda cinza */
-    border-radius: 1rem; /* Borda arredondada */
+    border: 2px solid #ced4da;
+    /* Cor da borda cinza */
+    border-radius: 1rem;
+    /* Borda arredondada */
     padding: 4rem;
 }
 
 .navbar-custom {
-    height: 80px; /* Defina a altura desejada aqui */
+    height: 80px;
+    /* Defina a altura desejada aqui */
 }
 
-.navbar-background{
+.navbar-background {
     background-color: #000000;
 }
 
-.sec-background{
+.sec-background {
     background-color: #171717;
 }
 
-.logo{
+.logo {
     width: 10rem;
     height: auto;
 }
 
-.main-text-color{
+.main-text-color {
     color: #F5F5F5;
 }
 
-.sec-text-color{
+.sec-text-color {
     color: #CFCFCF;
 }
 
-.purple{
+.purple {
     background-color: #551473;
 }
 
-.text-purple{
+.text-purple {
     color: #551473;
 }
 
-.blue{
+.blue {
     color: #007bff;
 }
 
-.red{
+.red {
     color: rgb(251, 24, 24);
 }
 
@@ -62,33 +66,33 @@ body{
     color: #F5F5F5;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #F5F5F5;
     background-color: #551473;
     border-radius: 0.5rem;
 }
 
 
-.footer-background{
+.footer-background {
     background-color: #000000;
 }
 
 .custom-img-register {
     height: 50rem;
     width: auto;
-  }
+}
 
-  .form-bg {
+.form-bg {
     background-image: url('/img/contact_form_bc.png');
     background-size: cover;
     padding: 50px;
-  }
+}
 
-.bc-user-plan{
+.bc-user-plan {
     background-color: #171717;
 }
 
-table{
+table {
     background-color: #171717;
 }
 
@@ -129,7 +133,7 @@ table{
     padding: 8px 12px;
 }
 
-#room-map{
+#room-map {
     padding: 1rem;
     display: block;
     margin: 0 auto;
@@ -139,7 +143,9 @@ table{
 .image-wrapper {
     margin: 10px;
 }
+
 .image-wrapper img {
     width: 150px;
     height: auto;
 }
+

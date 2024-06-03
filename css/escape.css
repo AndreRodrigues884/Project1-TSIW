@@ -2,7 +2,7 @@ body {
     background-color: black;
 }
 
-.align_escape{
+.align_escape {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,8 @@ body {
 
 
 .bc_escape {
-    overflow: hidden; /* Opcional */
+    overflow: hidden;
+    /* Opcional */
     width: 80vw;
     height: 100vh;
     background-image: url('/img/bc_escape.png');
@@ -18,34 +19,132 @@ body {
     background-position: center;
 }
 
-.header{
+.header {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.icon_position{
+.icon_position {
     padding: 4rem;
     width: 50%;
     display: flex;
     justify-content: flex-start;
-    
+
 }
 
-.box-icon{
+.box-icon {
     width: 40px;
     height: 40px;
     background-color: bisque;
 }
 
-.counter_position{
+.counter_position {
     width: 50%;
     display: flex;
     justify-content: flex-end;
 }
 
-.counter{
+.counter {
     padding: 4rem;
 }
 
+.pc-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 68%;
+}
 
+.pc-up-group {
+    display: flex;
+    justify-content: center;
+}
+
+.pc-down-group {
+    display: flex;
+    justify-content: center;
+}
+
+.tv-1 {
+    width: 20%;
+}
+
+.tv-2 {
+    width: 25%;
+}
+
+.tv-3 {
+    width: 20%;
+}
+
+
+.tv-4 {
+    width: 20%;
+}
+
+.tv-5 {
+    width: 20%;
+}
+
+.tv-6 {
+    width: 20%;
+}
+
+.tv-7 {
+    width: 20%;
+}
+
+.group-2 {
+    width: 100%;
+    height: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.group-2 .group-3 {
+    margin-bottom: 25rem;
+    width: 65%;
+}
+
+.group-2 .group-3 .object1 {
+    cursor: pointer;
+}
+
+.group-2 .group-3 .object7 {
+    cursor: pointer;
+}
+
+.group-2 .group-4 {
+    margin-bottom: 10rem;
+    width: 65%;
+}
+
+.group-2 .group-4 .object4 {
+   cursor: pointer;
+   width: 12rem;
+}
+
+.group-2 .group-4 .object6 {
+    cursor: pointer;
+    
+ }
+
+ .group-5{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27rem;
+    margin-right: 21rem;
+    gap: 4rem;
+ }
+
+ .group-5 .object3{
+    width: 3rem;
+    cursor: pointer;
+ }
+
+ .group-5 .object5{
+    cursor: pointer;
+ }
