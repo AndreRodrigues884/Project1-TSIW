@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    background: rgb(197,16,190);
+    background: radial-gradient(circle, rgba(197,16,190,1) 0%, rgba(85,20,115,1) 100%);
 }
 
 .align_escape {

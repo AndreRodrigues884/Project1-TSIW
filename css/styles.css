@@ -46,11 +46,11 @@ body {
 }
 
 .purple {
-    background-color: #551473;
+    background-color: #6e6e6e;
 }
 
 .text-purple {
-    color: #551473;
+    color: #a8a8a8;
 }
 
 .blue {
@@ -62,13 +62,13 @@ body {
 }
 
 .btn:hover {
-    background-color: #551473;
+    background-color: #131313;
     color: #F5F5F5;
 }
 
 .nav-link:hover {
     color: #F5F5F5;
-    background-color: #551473;
+    background-color: #6e6e6e;
     border-radius: 0.5rem;
 }
 
