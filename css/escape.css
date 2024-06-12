@@ -48,6 +48,9 @@ body {
 
 .counter {
     padding: 4rem;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 .pc-group {
