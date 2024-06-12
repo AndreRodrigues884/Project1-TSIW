@@ -8,6 +8,7 @@ const object6 = document.getElementById('object6');
 const object7 = document.getElementById('object7');
 const btnVerify = document.getElementById('btnVerify');
 
+const modalHandler = new EscapeRoom('modalQuestion');
 
 let clickedObjectId;
 
@@ -40,10 +41,6 @@ object7.addEventListener('click', () => {
     clickedObjectId = 'object7';
     modalHandler.showModal();
 });
-
-
-
-const modalHandler = new EscapeRoom('modalQuestion');
 
 object1.addEventListener('click', () => modalHandler.showModal());
 object3.addEventListener('click', () => modalHandler.showModal());

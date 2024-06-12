@@ -47,11 +47,11 @@ class EscapeRoom {
 
         if (isBlueChecked && !isRedChecked) {
             alert('Resposta correta!');
-            if (this.clickedObjectId) { // Verifica se há um objeto clicado
-                this.changeTVImage(this.clickedObjectId); // Altera a imagem da TV com base no objeto clicado
-                this.changedImagesCount++; // Incrementa o contador de imagens alteradas
-                if (this.changedImagesCount === this.tvObjects.length) { // Verifica se todas as imagens foram alteradas
-                    alert('Você ganhou o jogo!'); // Exibe o alerta de vitória
+            if (this.clickedObjectId) { 
+                this.changeTVImage(this.clickedObjectId); 
+                this.changedImagesCount++; 
+                if (this.changedImagesCount === this.tvObjects.length) { 
+                    alert('Você ganhou o jogo!'); 
                     location.reload();
                 }
             }
@@ -64,20 +64,20 @@ class EscapeRoom {
     changeTVImage(objectId) {
         switch (objectId) {
             case 'object1':
-                document.getElementById('tv-1').src = "/img/tv1_check.png"; // Altere o caminho da nova imagem aqui
+                document.getElementById('tv-1').src = "/img/tv1_check.png";
                 break;
             case 'object3':
-                document.getElementById('tv-2').src = "/img/tv2_check.png"; // Altere o caminho da nova imagem aqui
+                document.getElementById('tv-2').src = "/img/tv2_check.png";
                 break;
             case 'object4':
-                document.getElementById('tv-3').src = "/img/tv3_check.png"; // Altere o caminho da nova imagem aqui
+                document.getElementById('tv-3').src = "/img/tv3_check.png";
                 break;
             case 'object5':
-                document.getElementById('tv-4').src = "/img/tv4_check.png"; // Altere o caminho da nova imagem aqui
-                document.getElementById('tv-5').src = "/img/tv5_check.png"; // Altere o caminho da nova imagem aqui
+                document.getElementById('tv-4').src = "/img/tv4_check.png";
+                document.getElementById('tv-5').src = "/img/tv5_check.png";
                 break;
             case 'object6':
-                document.getElementById('tv-6').src = "/img/tv6_check.png"; // Altere o caminho da nova imagem aqui
+                document.getElementById('tv-6').src = "/img/tv6_check.png";
                 break;
                 case 'object7':
                     document.getElementById('tv-7').src = "/img/tv7_check.png";

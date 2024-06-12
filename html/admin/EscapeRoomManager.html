@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Users Manage</title>
+  <title>Escape Room Manager</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -64,15 +64,25 @@
         </div>
       </div>
       <div class="col py-3">
+        <div class="px-5 mt-5">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h4 id="addQuestion" class="main-text-color">Adicionar Questão <i class="bi bi-plus-circle"></i></h4>
+                </div>
+            </div>
+        </div>
+      <div class="col py-3">
         <div class="container d-inline">
           <div class="row row-custom">
             <div class="col col-custom">
-              <table class="table table-dark table-bordered table-striped w-50 mx-auto table-custom" id="userTable">
+              <table class="table table-dark table-bordered table-striped w-50 mx-auto table-custom" id="questionTable">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Email</th>
-                    <th>Actions</th>
+                    <th>Pergunta</th>
+                    <th>1º Resposta</th>
+                    <th>2º Resposta</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -86,47 +96,47 @@
     </div>
     </div>
     </div>
+
+
+     <!-- Modal Adicionar QR -->
+     <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title">Adicionar Questão</h5>
+                  <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="addQuestionForm">
+                      <div class="mb-3">
+                          <input type="text" class="form-control" id="questionInput"
+                              placeholder="Insira a Pergunta:" required>
+                      </div>
+                      <div class="mb-3">
+                          <input type="text" class="form-control" id="GoodAnswerInput" placeholder="Insira a 1º Resposta:" required>
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="BadAnswerInput" placeholder="Insira a 2º Resposta:" required>
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="closeModal"
+                      data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary" id="addQuestionButton">Adicionar</button>
+              </div>
+          </div>
+      </div>
+  </div>
     
 
 
-    <!-- Componente 2 -->
-   
-
-    <!-- Componente 3 -->
-    <!-- Modal -->
-    <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modal-title">Detalhes do User</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <p class="text-secondary" id="modalId"></p>
-                    <p class="text-secondary" id="modalUserName"></p>
-                    <p class="text-secondary" id="modalUserDob"></p>
-                    <p class="text-secondary" id="modalUserLocation"></p>
-                    <p class="text-secondary" id="modalUserSex"></p>
-                    <p class="text-secondary" id="modalUserEmail"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" id="closeModal" data-bs-dismiss="modal">Fechar</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  
 
 
 </body>
-<script type="module" src="/js/views/admin/users.js"></script>
+<script type="module" src="/js/views/admin/escape.js"></script>
 <script type="module" src="/js/models/AdminModel.js"></script>
 
 </html>
