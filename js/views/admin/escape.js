@@ -61,7 +61,7 @@ function addQuestions() {
 
         hideModal();
     } else {
-        alert('Por favor, preencha todos os campos!');
+        /* alert('Por favor, preencha todos os campos!'); */
     }
 }
 

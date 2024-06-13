@@ -14,8 +14,8 @@
 </head>
 
 <body class="body-gradient">
-    <div class="pt-4">
-        <a href="/html/user/AboutView.html"><button>Voltar</button></a>
+    <div>
+        <a href="/html/user/AboutView.html"><button class="backBtn">Voltar</button></a>
     </div>
 
     <div class="d-flex justify-content-center align-items-center vh-100">
@@ -32,24 +32,39 @@
     let escapeMessage = document.getElementById('escapeMessage');
 
     if (escapeMessage) {
-        if (userRole === 'user' && loginStatus === 'true') {
-            escapeMessage.textContent += 'Bem-vindo ao Escape Room, ' + nameUser + '!';
-            let startButton = document.createElement('button');
-            startButton.textContent = 'Iniciar';
-            startButton.addEventListener('click', function () {
-                window.location.href = '/html/user/StartEscapeRoom.html';
-            });
-            escapeMessage.appendChild(startButton);
-        } else {
-            escapeMessage.textContent += 'Precisa de iniciar sessão para participar neste Escape Room!';
-            let loginButton = document.createElement('button');
-            loginButton.textContent = 'Ir para Login';
-            loginButton.addEventListener('click', function () {
-                window.location.href = '/html/LoginView.html';
-            });
-            escapeMessage.appendChild(loginButton);
-        }
-    };
+    let containerDiv = document.createElement('div');
+    containerDiv.classList.add('message-container');
+
+    if (userRole === 'user' && loginStatus === 'true') {
+        let welcomeMessage = document.createElement('p');
+        welcomeMessage.textContent = 'Bem-vindo ao Escape Room, ' + nameUser + '!';
+        containerDiv.appendChild(welcomeMessage);
+
+        let startButton = document.createElement('button');
+        startButton.classList.add('startBtn');
+        startButton.textContent = 'START';
+        startButton.addEventListener('click', function () {
+            window.location.href = '/html/user/StartEscapeRoom.html';
+        });
+        containerDiv.appendChild(startButton);
+    } else {
+        let loginMessage = document.createElement('p');
+        loginMessage.textContent = 'Precisa de iniciar sessão para participar neste Escape Room!';
+        containerDiv.appendChild(loginMessage);
+
+        // Cria e adiciona o botão de login
+        let loginButton = document.createElement('button');
+        loginButton.classList.add('startBtn');
+        loginButton.textContent = 'Ir para Login';
+        loginButton.addEventListener('click', function () {
+            window.location.href = '/html/LoginView.html';
+        });
+        containerDiv.appendChild(loginButton);
+    }
+
+    // Adiciona a div container ao escapeMessage
+    escapeMessage.appendChild(containerDiv);
+}
 }
 
 escapeMessage();
