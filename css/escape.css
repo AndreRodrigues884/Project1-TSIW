@@ -1,11 +1,31 @@
 body {
-    background: radial-gradient(circle, rgba(197,16,190,1) 0%, rgba(85,20,115,1) 100%);
+    background: rgb(61, 67, 143);
 }
 
 .align_escape {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btnModal {
+    background: rgb(0, 184, 12);
+    color: white;
+}
+
+.btnModal:hover {
+    color: rgba(5, 38, 89, 1);
+    background: white;
+    border: 1px solid rgb(0, 184, 12);
+}
+
+.inactive-object {
+    cursor: no-drop;
+    opacity: 50%;
+}
+
+.active-object {
+    cursor: pointer;
 }
 
 
@@ -52,14 +72,14 @@ body {
     font-weight: 600;
 }
 
-.message-container{
+.message-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.backBtn{
+.backBtn {
     width: 5rem;
     height: 3rem;
     border: none;
@@ -68,7 +88,7 @@ body {
     border-radius: 0.5rem;
 }
 
-.startBtn{
+.startBtn {
     padding: 1rem;
     border: none;
     color: black;
@@ -141,12 +161,8 @@ body {
     width: 65%;
 }
 
-.group-2 .group-3 .object1 {
-    cursor: pointer;
-}
-
 .group-2 .group-3 .object7 {
-    cursor: pointer;
+
     margin-top: 8rem;
 }
 
@@ -156,28 +172,21 @@ body {
 }
 
 .group-2 .group-4 .object4 {
-   cursor: pointer;
-   width: 12rem;
+
+    width: 12rem;
 }
 
-.group-2 .group-4 .object6 {
-    cursor: pointer;
-    
- }
 
- .group-5{
+
+.group-5 {
     display: flex;
     flex-direction: column;
     margin-bottom: 27rem;
     margin-right: 21rem;
     gap: 4rem;
- }
+}
 
- .group-5 .object3{
+.group-5 .object3 {
     width: 3rem;
-    cursor: pointer;
- }
-
- .group-5 .object5{
-    cursor: pointer;
- }
+    /*  cursor: pointer; */
+}

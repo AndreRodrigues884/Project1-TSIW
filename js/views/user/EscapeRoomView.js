@@ -7,8 +7,17 @@ const object5 = document.getElementById('object5');
 const object6 = document.getElementById('object6');
 const object7 = document.getElementById('object7');
 const btnVerify = document.getElementById('btnVerify');
-
 const modalHandler = new EscapeRoom('modalQuestion');
+
+function openInstructionsModal() {
+    const modalInstructions = new bootstrap.Modal(document.getElementById('modalInstructions'));
+    modalInstructions.show();
+}
+
+window.onload = () => {
+    openInstructionsModal();
+};
+
 
 let clickedObjectId;
 
@@ -49,6 +58,7 @@ object5.addEventListener('click', () => modalHandler.showModal());
 object6.addEventListener('click', () => modalHandler.showModal());
 object7.addEventListener('click', () => modalHandler.showModal());
 btnVerify.addEventListener('click', () => modalHandler.verifyAnswer(clickedObjectId));
+
 
 
 

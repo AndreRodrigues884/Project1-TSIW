@@ -25,7 +25,7 @@
                                 width="40" height="40" style="color: white; cursor: pointer;"></iconify-icon></a>
                     </div>
                     <div class="counter_position">
-                        <div id="counter" class="counter">03:00</div>
+                        <div id="counter" class="counter">01:30</div>
                     </div>
                 </div>
                 <div class="pc-group">
@@ -59,35 +59,41 @@
         </div>
     </div>
 
-
    <!--  Modal -->
-    <div class="modal" id="modalQuestion">
+   <div class="modal" id="modalQuestion">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Pergunta</h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body" id="modalBody">
+                <!-- O conteúdo do modal será preenchido dinamicamente aqui -->
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnVerify">Verificar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modal para as instruções do jogo -->
+    <div class="modal" id="modalInstructions">
         <div class="modal-dialog">
             <div class="modal-content">
-
-                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Pergunta</h4>
+                    <h5 class="modal-title">Instruções do Jogo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <!-- Modal Body -->
                 <div class="modal-body">
-                    Qual é a sua cor favorita?
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="checkBlue">
-                        <label class="form-check-label" for="checkBlue">Azul</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="checkRed">
-                        <label class="form-check-label" for="checkRed">Vermelho</label>
-                    </div>
+                    <p>"UPS!!! O nosso programador foi afetado por um vírus e precisa da sua ajuda para voltar ao trabalho. <br>Para o ajudar deve responder acertadamente a 6 perguntas que estão escondidas dentro de objetos espalhados pelo escape room.</p>
                 </div>
-
-                <!-- Modal Footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnVerify">Verificar</button>
+                    <button type="button" class="btn btnModal" data-bs-dismiss="modal">Iniciar Tentativa</button>
                 </div>
-
             </div>
         </div>
     </div>

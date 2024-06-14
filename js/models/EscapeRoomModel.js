@@ -7,15 +7,15 @@ class EscapeRoom {
         this.clickedObjectId = null;
         this.changedImagesCount = 0;
         this.counterDisplay = document.getElementById('counter');
-        this.fiveMinutes = 60 * 3;
+        this.fiveMinutes = 60 * 1.5;
+        this.questions = [];
+        this.usedQuestions = new Set();
+        this.loadQuestionsFromStorage();
+
         this.objects.forEach(object => {
             object.addEventListener('click', () => {
-                this.handleObjectClick(object);
-            });
-        });
-        this.tvObjects.forEach(tv => {
-            tv.addEventListener('click', () => {
-                this.handleTVClick(tv);
+                this.handleObjectClick(object.id);
+                console.log(object.id);
             });
         });
         this.startCounter(this.fiveMinutes, this.counterDisplay, () => {
@@ -24,13 +24,45 @@ class EscapeRoom {
         });
     }
 
-    handleObjectClick(object) {
-        console.log('Objeto clicado:', object.id);
-        this.clickedObjectId = object.id;
+    loadQuestionsFromStorage() {
+        const storedQuestions = JSON.parse(localStorage.getItem('questions')) || [];
+        this.questions = [...storedQuestions];
     }
 
-    handleTVClick(tv) {
-        console.log('TV clicada:', tv.id);
+    inactiveObject(objectId) {
+        document.getElementById(objectId).classList.add('inactive-object');
+    }
+
+    activeObject(objectId) {
+        document.getElementById(objectId).classList.add('active-object');
+    }
+
+    handleObjectClick(objectId) {
+        let availableQuestions = this.questions.filter(question => !this.usedQuestions.has(question.question));
+
+        let randomIndex = Math.floor(Math.random() * availableQuestions.length);
+        let randomQuestion = availableQuestions[randomIndex];
+
+        this.updateModalContent(randomQuestion);
+
+        this.showModal();
+
+        this.clickedObjectId = objectId;
+    }
+
+    updateModalContent(questionObj) {
+        const modalBody = document.getElementById('modalBody');
+        modalBody.innerHTML = `
+            <div>${questionObj.question}</div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="goodAnswer">
+                <label class="form-check-label" for="goodAnswer">${questionObj.goodAnswer}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="badAnswer">
+                <label class="form-check-label" for="badAnswer">${questionObj.badAnswer}</label>
+            </div>
+        `;
     }
 
     showModal() {
@@ -42,21 +74,22 @@ class EscapeRoom {
     }
 
     verifyAnswer() {
-        let isBlueChecked = document.getElementById('checkBlue').checked;
-        let isRedChecked = document.getElementById('checkRed').checked;
+        let isGoodAnswer = document.getElementById('goodAnswer').checked;
+        let isBadAnswer = document.getElementById('badAnswer').checked;
 
-        if (isBlueChecked && !isRedChecked) {
+        if (isGoodAnswer && !isBadAnswer) {
             alert('Resposta correta!');
-            if (this.clickedObjectId) { 
-                this.changeTVImage(this.clickedObjectId); 
-                this.changedImagesCount++; 
-                if (this.changedImagesCount === this.tvObjects.length) { 
-                    alert('Você ganhou o jogo!'); 
-                    location.reload();
-                }
+            this.inactiveObject(this.clickedObjectId);
+            this.changeTVImage(this.clickedObjectId);
+            this.changedImagesCount++;
+            this.usedQuestions.add(this.questions.find(q => q.question === document.getElementById('modalBody').getElementsByTagName('div')[0].innerHTML).question);
+
+            if (this.changedImagesCount === this.tvObjects.length) {
+                alert('Você ganhou o jogo!');
+                window.location = '../../index.html'
             }
         } else {
-            alert('Resposta errada! A resposta correta é Azul.');
+            alert('Resposta errada!');
         }
         this.hideModal();
     }
@@ -79,14 +112,14 @@ class EscapeRoom {
             case 'object6':
                 document.getElementById('tv-6').src = "/img/tv6_check.png";
                 break;
-                case 'object7':
-                    document.getElementById('tv-7').src = "/img/tv7_check.png";
-                    break;
+            case 'object7':
+                document.getElementById('tv-7').src = "/img/tv7_check.png";
+                break;
             default:
                 break;
         }
     }
-    
+
     startCounter(duration, display, callback) {
         let timer = duration, minutes, seconds;
         const intervalId = setInterval(() => {

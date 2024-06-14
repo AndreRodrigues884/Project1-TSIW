@@ -15,7 +15,7 @@
   <link href="/css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg_admin">
   <div class="container-fluid">
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -81,8 +81,8 @@
                   <tr>
                     <th>ID</th>
                     <th>Pergunta</th>
-                    <th>1º Resposta</th>
-                    <th>2º Resposta</th>
+                    <th>Resposta Correta</th>
+                    <th>Resposta Errada</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
@@ -115,10 +115,10 @@
                               placeholder="Insira a Pergunta:" required>
                       </div>
                       <div class="mb-3">
-                          <input type="text" class="form-control" id="GoodAnswerInput" placeholder="Insira a 1º Resposta:" required>
+                          <input type="text" class="form-control" id="GoodAnswerInput" placeholder="Insira a Resposta Correta:" required>
                       </div>
                       <div class="mb-3">
-                        <input type="text" class="form-control" id="BadAnswerInput" placeholder="Insira a 2º Resposta:" required>
+                        <input type="text" class="form-control" id="BadAnswerInput" placeholder="Insira a Resposta Errada:" required>
                     </div>
                   </form>
               </div>
