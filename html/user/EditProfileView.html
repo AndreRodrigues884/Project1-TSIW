@@ -51,17 +51,45 @@
             <button id="logoutButton" class="btn main-text-color purple">Logout</button>
         </div>
     </nav>
-    <h1 class="text-center p-4 sec-text-color">Edição de Perfil</h1>
-    <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-            <input type="text" id="name" class="mb-2 col-md-2" placeholder="Nome">
-            <input type="email" id="email" class="mb-2 col-md-2" placeholder="Email">
-            <input type="dob" id="dob" class="mb-2 col-md-2" placeholder="Data de Nascimento">
-            <input type="text" id="sex" class="mb-2 col-md-2" placeholder="Sexo">
-            <input type="text" id="location" class="mb-2 col-md-2" placeholder="Localização">
-    </div>
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <a href="/html/user/AboutView.html"><button class="btn btn-danger">Cancelar</button></a>
-        <button id="confirmEdit" class="btn btn-success">Confirmar</button>
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header text-center bg-primary text-white">
+                <h2>Edição de Perfil</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" id="name" class="form-control" placeholder="Nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Data de Nascimento</label>
+                        <input type="date" id="dob" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sex" class="form-label">Sexo</label>
+                        <select id="sex" class="form-select">
+                            <option selected disabled>Selecione...</option>
+                            <option value="male">Masculino</option>
+                            <option value="female">Feminino</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Localização</label>
+                        <input type="text" id="location" class="form-control" placeholder="Localização">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/html/user/AboutView.html" class="btn btn-danger">Cancelar</a>
+                        <button type="button" id="confirmEdit" class="btn btn-success">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 </body>

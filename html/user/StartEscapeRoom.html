@@ -97,6 +97,44 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para a vitória do jogo -->
+    <div class="modal" id="modalWin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Vitória</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                    <img src="/img/trophy.png" alt="" srcset="">
+                    <p class="text-center">Você está de parabéns, conseguiu combater o virus e ajudar o nosso programador a voltar ao seu trabalho!!!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/index.html"><button type="button" class="btn btnModalWin" data-bs-dismiss="modal">Sair</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para a derrota do jogo -->
+    <div class="modal" id="modalLose">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Derrota</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                    <img src="/img/lose.png" alt="" srcset="">
+                    <p class="text-center">OHHH! Não conseguiu combater o virus, agora o nosso programador não vai conseguir voltar ao seu trabalho...</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/html/user/StartEscapeRoom.html"><button type="button" class="btn btnModalWin" data-bs-dismiss="modal">Voltar a tentar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script type="module" src="/js/views/user/EscapeRoomView.js"></script>
 

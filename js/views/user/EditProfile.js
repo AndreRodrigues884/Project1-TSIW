@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn === 'true') {
         const loggedInUserEmail = localStorage.getItem('loggedInUserEmail');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newLocation = document.getElementById('location').value;
         const newEmail = document.getElementById('email').value;
 
-        // Atualizar os dados do usuário na localStorage
+        // Atualizar os dados do user na localStorage
         const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
         const loggedInUserEmail = localStorage.getItem('loggedInUserEmail');
         const updatedFormData = storedFormData.map(user => {
@@ -45,5 +45,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
     });
-
-});

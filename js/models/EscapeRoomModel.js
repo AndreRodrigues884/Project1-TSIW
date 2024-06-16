@@ -11,6 +11,8 @@ class EscapeRoom {
         this.questions = [];
         this.usedQuestions = new Set();
         this.loadQuestionsFromStorage();
+        this.modalWinElement = document.getElementById('modalWin');
+        this.modalLoseElement = document.getElementById('modalLose');
 
         this.objects.forEach(object => {
             object.addEventListener('click', () => {
@@ -19,9 +21,21 @@ class EscapeRoom {
             });
         });
         this.startCounter(this.fiveMinutes, this.counterDisplay, () => {
-            alert('Você perdeu o jogo!');
-            location.reload();
+            this.openModalLose();
         });
+
+        if (this.modalWinElement) {
+            this.modalWin = new bootstrap.Modal(this.modalWinElement);
+        } else {
+            console.error('Elemento com ID modalWin não encontrado');
+        }
+
+        if (this.modalLoseElement) {
+            this.modalLose = new bootstrap.Modal(this.modalLoseElement);
+        } else {
+            console.error('Elemento com ID modalWin não encontrado');
+        }
+
     }
 
     loadQuestionsFromStorage() {
@@ -35,6 +49,22 @@ class EscapeRoom {
 
     activeObject(objectId) {
         document.getElementById(objectId).classList.add('active-object');
+    }
+
+    openModalWin() {
+        if (this.modalWin) {
+            this.modalWin.show();
+        } else {
+            console.error('modalWin não foi inicializado corretamente');
+        }
+    }
+
+    openModalLose() {
+        if (this.modalLose) {
+            this.modalLose.show();
+        } else {
+            console.error('modalLose não foi inicializado corretamente');
+        }
     }
 
     handleObjectClick(objectId) {
@@ -84,9 +114,8 @@ class EscapeRoom {
             this.changedImagesCount++;
             this.usedQuestions.add(this.questions.find(q => q.question === document.getElementById('modalBody').getElementsByTagName('div')[0].innerHTML).question);
 
-            if (this.changedImagesCount === this.tvObjects.length) {
-                alert('Você ganhou o jogo!');
-                window.location = '../../index.html'
+            if (this.changedImagesCount === this.tvObjects.length - 1) {
+                this.openModalWin();
             }
         } else {
             alert('Resposta errada!');
