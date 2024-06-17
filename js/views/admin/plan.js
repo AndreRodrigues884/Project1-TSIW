@@ -1,7 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
+const addButton = document.getElementById('addUC');
+const addUCButton = document.getElementById('addUCButton');
+const ucTable = document.getElementById('ucTable');
+const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
+
+    
     function displayUCs() {
-        const ucTable = document.getElementById('ucTable');
-        const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
         storedFormData.forEach((uc, index) => {
             const row = ucTable.insertRow(-1);
 
@@ -28,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showDetails(ucId) {
-        const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
         const uc = storedFormData[ucId - 1];
 
         if (uc) {
@@ -62,8 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 period: periodInputValue
             };
 
-            const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
-
+    
             storedFormData.push(newUC);
 
             localStorage.setItem('courses', JSON.stringify(storedFormData));
@@ -85,22 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function deleteUC(ucId) {
-        const storedFormData = JSON.parse(localStorage.getItem('courses')) || [];
-
         const isConfirmed = confirm("Tem certeza que deseja eliminar esta UC?");
 
         if (isConfirmed) {
             const updatedFormData = storedFormData.filter((_uc, index) => index !== ucId - 1);
             localStorage.setItem('courses', JSON.stringify(updatedFormData));
 
-            const ucTable = document.getElementById('ucTable');
             ucTable.deleteRow(ucId);
             refreshTable();
         }
     }
 
     function refreshTable() {
-        const ucTable = document.getElementById('ucTable');
         for (let i = ucId; i < ucTable.rows.length; i++) {
             ucTable.rows[i].cells[0].textContent = i;
         }
@@ -108,13 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayUCs();
 
-    const addButton = document.getElementById('addUC');
-    const addUCButton = document.getElementById('addUCButton');
-
     addButton.addEventListener('click', () => {
         const addUCModal = new bootstrap.Modal(document.getElementById('addUCModal'));
         addUCModal.show();
     });
 
     addUCButton.addEventListener('click', addUC);
-});

@@ -1,7 +1,8 @@
 const storedFormData = JSON.parse(localStorage.getItem('forms')) || [];
+const formTable = document.getElementById('formTable');
+
 
 function displayForms() {
-    const formTable = document.getElementById('formTable');
 
     storedFormData.forEach((form, index) => {
         const row = formTable.insertRow(-1);
@@ -25,22 +26,18 @@ function displayForms() {
 }
 
 function refreshTable() {
-    const formTable = document.getElementById('formTable');
     for (let i = formID; i < formTable.rows.length; i++) {
         formTable.rows[i].cells[0].textContent = i;
     }
 }
 
 function deleteForm(formID) {
-    const storedFormData = JSON.parse(localStorage.getItem('forms')) || [];
-
     const isConfirmed = confirm("Tem certeza que deseja eliminar este formulário?");
 
     if (isConfirmed) {
         const updatedFormData = storedFormData.filter((_form, index) => index !== formID - 1);
         localStorage.setItem('forms', JSON.stringify(updatedFormData));
 
-        const formTable = document.getElementById('formTable');
         formTable.deleteRow(formID);
         refreshTable();
     }

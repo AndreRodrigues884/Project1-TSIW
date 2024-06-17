@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+const eventTable = document.getElementById('eventTable');
+const storedFormData = JSON.parse(localStorage.getItem('event')) || [];
+const addButton = document.getElementById('addEvent');
+const addEventButton = document.getElementById('addEventButton');
+    
     function displayEvents() {
-        const ucTable = document.getElementById('ucTable');
-        const storedFormData = JSON.parse(localStorage.getItem('event')) || [];
         storedFormData.forEach((event, index) => {
-            const row = ucTable.insertRow(-1);
+            const row = eventTable.insertRow(-1);
 
             const cellId = row.insertCell(0);
             cellId.textContent = index + 1;
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function addAlumni() {
+    function addEvent() {
         const imgInputValue = document.getElementById('imgInput');
         const imgFile = imgInputValue.files[0];
         const titleInputValue = document.getElementById('titleInput').value;
@@ -55,15 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
             reader.onload = function (event) {
                 const imgBase64 = event.target.result;
 
-                const storedFormData = JSON.parse(localStorage.getItem('event')) || [];
+                
                 const newEvent = {
                     id: storedFormData.length + 1,
                     img: imgBase64,
                     title: titleInputValue,
                     text: textInputValue,
                 };
-
-
 
                 storedFormData.push(newEvent);
 
@@ -83,6 +82,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function showDetails(eventId) {
+        const event = storedFormData[eventId - 1];
+
+        if (event) {
+            document.getElementById('modalId').textContent = 'Detalhes da UC ' + eventId;
+            document.getElementById('titleEventInput').value = event.title;
+            document.getElementById('descriptionEventInput').value = event.text;
+
+            const eventsDetailsModal = new bootstrap.Modal(document.getElementById('eventsDetailsModal'));
+            eventsDetailsModal.show();
+
+            document.getElementById('confirmEditButton').addEventListener('click', () => {
+                event.title = document.getElementById('titleEventInput').value;
+                event.text = document.getElementById('descriptionEventInput').value;
+                storedFormData[eventId - 1] = event;
+                localStorage.setItem('event', JSON.stringify(storedFormData));
+                hideModal();
+                location.reload();
+            });
+        } else {
+            console.log('Evento não encontrado');
+        }
+    }
+
 
 
     function hideModal() {
@@ -91,40 +114,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function deleteAlumni(eventId) {
-        const storedFormData = JSON.parse(localStorage.getItem('event')) || [];
-
         const isConfirmed = confirm("Tem certeza que deseja eliminar este Testemunho?");
 
         if (isConfirmed) {
             const updatedFormData = storedFormData.filter((_event, index) => index !== eventId - 1);
             localStorage.setItem('event', JSON.stringify(updatedFormData));
 
-            const ucTable = document.getElementById('ucTable');
-            ucTable.deleteRow(eventId);
+            eventTable.deleteRow(eventId);
             refreshTable();
         }
-
-
     }
 
     function refreshTable() {
-        const ucTable = document.getElementById('ucTable');
-        for (let i = eventId; i < ucTable.rows.length; i++) {
-            ucTable.rows[i].cells[0].textContent = i;
+        for (let i = eventId; i < eventTable.rows.length; i++) {
+            eventTable.rows[i].cells[0].textContent = i;
         }
     }
 
     displayEvents();
 
-    const addButton = document.getElementById('addAlumni');
-    const addAlumniButton = document.getElementById('addAlumniButton');
-
     addButton.addEventListener('click', () => {
-        const addAlumniModal = new bootstrap.Modal(document.getElementById('addAlumniModal'));
-        addAlumniModal.show();
+        const addEventModal = new bootstrap.Modal(document.getElementById('addEventModal'));
+        addEventModal.show();
     });
 
-    addAlumniButton.addEventListener('click', addAlumni);
+    addEventButton.addEventListener('click', addEvent);
 
-
-});

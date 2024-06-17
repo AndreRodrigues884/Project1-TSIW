@@ -1,9 +1,9 @@
 const addQuestion = document.getElementById('addQuestion');
 const addQuestionButton = document.getElementById('addQuestionButton');
+const questionTable = document.getElementById('questionTable');
+const storedFormData = JSON.parse(localStorage.getItem('questions')) || [];
 
 function displayQuestions() {
-    const questionTable = document.getElementById('questionTable');
-    const storedFormData = JSON.parse(localStorage.getItem('questions')) || [];
     storedFormData.forEach((escape, index) => {
         const row = questionTable.insertRow(-1);
 
@@ -47,8 +47,6 @@ function addQuestions() {
             badAnswer: secondInputValue
         };
 
-        const storedFormData = JSON.parse(localStorage.getItem('questions')) || [];
-
         storedFormData.push(newQuestion);
 
         localStorage.setItem('questions', JSON.stringify(storedFormData));
@@ -65,16 +63,39 @@ function addQuestions() {
     }
 }
 
-function deleteQuestion(questionId) {
-    const storedFormData = JSON.parse(localStorage.getItem('questions')) || [];
+function showDetails(questionId) {
+    const escape = storedFormData[questionId - 1];
 
+    if (escape) {
+        document.getElementById('modalId').textContent = 'Detalhes da Questão ' + questionId;
+        document.getElementById('QuestionInput').value = escape.question;
+        document.getElementById('goodAnswerInput').value = escape.goodAnswer;
+        document.getElementById('badAnswerInput').value = escape.badAnswer;
+
+        const questionDetailsModal = new bootstrap.Modal(document.getElementById('questionDetailsModal'));
+        questionDetailsModal.show();
+
+        document.getElementById('confirmEditButton').addEventListener('click', () => {
+            escape.question = document.getElementById('QuestionInput').value;
+            escape.goodAnswer = document.getElementById('goodAnswerInput').value;
+            escape.badAnswer = document.getElementById('badAnswerInput').value;
+            storedFormData[questionId - 1] = escape;
+            localStorage.setItem('questions', JSON.stringify(storedFormData));
+            hideModal();
+            location.reload();
+        });
+    } else {
+        console.log('Questão não encontrada');
+    }
+}
+
+function deleteQuestion(questionId) {
     const isConfirmed = confirm("Tem certeza que deseja eliminar esta questão?");
 
     if (isConfirmed) {
         const updatedFormData = storedFormData.filter((_question, index) => index !== questionId - 1);
         localStorage.setItem('questions', JSON.stringify(updatedFormData));
 
-        const questionTable = document.getElementById('questionTable');
         questionTable.deleteRow(questionId);
         refreshTable();
     }
@@ -86,19 +107,16 @@ function hideModal() {
 }
 
 function refreshTable() {
-    const questionTable = document.getElementById('questionTable');
     for (let i = questionId; i < questionTable.rows.length; i++) {
         questionTable.rows[i].cells[0].textContent = i;
     }
 }
-
-
 
 addQuestion.addEventListener('click', () => {
         const addQuestionModal = new bootstrap.Modal(document.getElementById('addQuestionModal'));
         addQuestionModal.show();
     });
 
-    addQuestionModal.addEventListener('click', addQuestions);
+addQuestionModal.addEventListener('click', addQuestions);
 
     displayQuestions();

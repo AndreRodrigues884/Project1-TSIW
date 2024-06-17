@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+const ucTable = document.getElementById('ucTable');
+const storedFormData = JSON.parse(localStorage.getItem('alumni')) || [];
+const addButton = document.getElementById('addAlumni');
+const addAlumniButton = document.getElementById('addAlumniButton');
+    
     function displayAlumni() {
-        const ucTable = document.getElementById('ucTable');
-        const storedFormData = JSON.parse(localStorage.getItem('alumni')) || [];
         storedFormData.forEach((alumni, index) => {
             const row = ucTable.insertRow(-1);
 
@@ -63,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     date: dateInputValue
                 };
 
-                const storedFormData = JSON.parse(localStorage.getItem('alumni')) || [];
-
                 storedFormData.push(newAlumni);
 
                 localStorage.setItem('alumni', JSON.stringify(storedFormData));
@@ -84,7 +83,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function showDetails(alumniId) {
+        const alumni = storedFormData[alumniId - 1];
 
+        if (alumni) {
+            document.getElementById('modalId').textContent = 'Detalhes do Testemunho ' + alumniId;
+            document.getElementById('titleAlumniInput').value = alumni.title;
+            document.getElementById('textAlumniInput').value = alumni.text;
+            document.getElementById('dateAlumniInput').value = alumni.date;
+
+            const alumniDetailsModal = new bootstrap.Modal(document.getElementById('alumniDetailsModal'));
+            alumniDetailsModal.show();
+
+            document.getElementById('confirmEditButton').addEventListener('click', () => {
+                alumni.title = document.getElementById('titleAlumniInput').value;
+                alumni.text = document.getElementById('textAlumniInput').value;
+                alumni.date = document.getElementById('dateAlumniInput').value;
+                storedFormData[alumniId - 1] = alumni;
+                localStorage.setItem('alumni', JSON.stringify(storedFormData));
+                hideModal();
+                location.reload();
+            });
+        } else {
+            console.log('Testemunho não encontrado');
+        }
+    }
 
     function hideModal() {
         const closeModal = new bootstrap.Modal(document.getElementById('closeModal'));
@@ -92,15 +115,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function deleteAlumni(alumniId) {
-        const storedFormData = JSON.parse(localStorage.getItem('alumni')) || [];
-
         const isConfirmed = confirm("Tem certeza que deseja eliminar este Testemunho?");
 
         if (isConfirmed) {
             const updatedFormData = storedFormData.filter((_alumni, index) => index !== alumniId - 1);
             localStorage.setItem('alumni', JSON.stringify(updatedFormData));
-
-            const ucTable = document.getElementById('ucTable');
+ 
             ucTable.deleteRow(alumniId);
             refreshTable();
         }
@@ -109,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function refreshTable() {
-        const ucTable = document.getElementById('ucTable');
         for (let i = alumniId; i < ucTable.rows.length; i++) {
             ucTable.rows[i].cells[0].textContent = i;
         }
@@ -117,15 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayAlumni();
 
-    const addButton = document.getElementById('addAlumni');
-    const addAlumniButton = document.getElementById('addAlumniButton');
-
     addButton.addEventListener('click', () => {
         const addAlumniModal = new bootstrap.Modal(document.getElementById('addAlumniModal'));
         addAlumniModal.show();
     });
 
     addAlumniButton.addEventListener('click', addAlumni);
-
-
-});

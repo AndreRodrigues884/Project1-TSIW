@@ -1,7 +1,10 @@
 const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+const userTable = document.getElementById('userTable');
+let modal = document.getElementById('userDetailsModal')
+let closeModal = document.getElementById('closeModal');
+
 
 function displayUsers() {
-    const userTable = document.getElementById('userTable');
 
     storedFormData.forEach((user, index) => {
         const row = userTable.insertRow(-1);
@@ -32,10 +35,6 @@ function displayUsers() {
     });
 }
 
-
-let modal = document.getElementById('userDetailsModal')
-let closeModal = document.getElementById('closeModal');
-
 function showDetails(userId) {
     const user = storedFormData[userId - 1];
 
@@ -62,14 +61,12 @@ function hideModal() {
 closeModal.addEventListener('click', hideModal);
 
 function refreshTable() {
-    const userTable = document.getElementById('userTable');
     for (let i = userId; i < userTable.rows.length; i++) {
         userTable.rows[i].cells[0].textContent = i;
     }
 }
 
 function deleteUser(userId) {
-
     const isConfirmed = confirm("Tem certeza que deseja eliminar o utilizador?");
 
     if (isConfirmed) {
@@ -78,10 +75,8 @@ function deleteUser(userId) {
         const updatedFormData = storedFormData.filter((_user, index) => index !== userId - 1);
         localStorage.setItem('formData', JSON.stringify(updatedFormData));
 
-        const userTable = document.getElementById('userTable');
-        userTable.deleteRow(userId);
+            userTable.deleteRow(userId);
         refreshTable();
-       
     }
 
 }

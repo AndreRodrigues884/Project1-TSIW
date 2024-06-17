@@ -71,7 +71,7 @@
                 <div class="px-5 mt-5">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <h4 id="addAlumni" class="main-text-color">Adicionar Testemunho<i class="bi bi-plus-circle"></i></h4>
+                            <h4 id="addAlumni" class="main-text-color">Adicionar Testemunho <i class="bi bi-plus-circle"></i></h4>
                         </div>
                     </div>
                 </div>
@@ -100,9 +100,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 
     <div class="modal fade" id="addAlumniModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -134,6 +131,38 @@
                     <button type="button" class="btn btn-secondary" id="closeModal"
                         data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary" id="addAlumniButton">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Alumni -->
+    <div class="modal fade" id="alumniDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Detalhes do Alumni</h5>
+                    <button type="button" class="btn-close" id="closeModal" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-secondary" id="modalId"></p>
+                                    <input type="file" class="form-control" id="imgInput" required>
+                                    <input type="text" id="titleAlumniInput" placeholder="Titulo">
+                                    <input type="text" id="textAlumniInput" placeholder="Texto">
+                                    <input type="text" id="dateAlumniInput" placeholder="Data de Publicação">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="closeModal" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="confirmEditButton">Confirmar</button>
                 </div>
             </div>
         </div>

@@ -130,6 +130,37 @@
           </div>
       </div>
   </div>
+
+    <!-- Modal Edit QR -->
+    <div class="modal fade" id="questionDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title">Detalhes da Questão</h5>
+                  <button type="button" class="btn-close" id="closeModal" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col">
+                          <div class="row">
+                              <div class="col">
+                                  <p class="text-secondary" id="modalId"></p>
+                                  <input type="text" id="QuestionInput" placeholder="Pergunta">
+                                  <input type="text" id="goodAnswerInput" placeholder="Resposta Correta">
+                                  <input type="text" id="badAnswerInput" placeholder="Resposta Errada">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" id="closeModal" data-bs-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-success" id="confirmEditButton">Confirmar</button>
+              </div>
+          </div>
+      </div>
+  </div>
     
 
 
