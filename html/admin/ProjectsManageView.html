@@ -71,17 +71,113 @@
                 </div>
             </div>
             <div class="col py-3">
-                Projetos
+                <div class="px-5 mt-5">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 id="addProject" class="main-text-color">Adicionar Projeto<i class="bi bi-plus-circle"></i></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container d-inline">
+                    <div class="row justify-content-center p-4">
+                        <div class="col">
+                            <table class="table table-dark table-bordered table-striped w-75 mx-auto table-custom"
+                                id="projectTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Imagem</th>
+                                        <th>Titulo</th>
+                                        <th>Texto</th>
+                                        <th>Ano</th>
+                                        <th>Editar</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Os dados da tabela seriam preenchidos dinamicamente aqui -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+      <!-- Modal Adiconar Projeto -->
+      <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Adicionar Projeto  </h5>
+                    <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUCForm">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" id="imgInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="titleInput" placeholder="Titulo" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="textInput" placeholder="Texto" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="dateInput" placeholder="Data" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeModal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="addProjectButton">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Eventos -->
+<div class="modal fade" id="eventsDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Detalhes do Projeto</h5>
+                <button type="button" class="btn-close" id="closeModal" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-secondary" id="modalId"></p>
+                                <input type="file" class="form-control" id="imgEventInput" required>
+                                <input type="text" id="titleProjectInput" placeholder="Titulo do Projeto">
+                                <input type="text" id="descriptionProjectInput" placeholder="Descrição do Projeto">
+                                <input type="text" id="dateProjectInput" placeholder="Ano do Evento">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="closeModal" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success" id="confirmEditButton">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 
 
 </body>
-<script type="module" src="/js/views/admin/users.js"></script>
+<script type="module" src="/js/views/admin/project.js"></script>
 <script type="module" src="/js/models/AdminModel.js"></script>
 
 </html>

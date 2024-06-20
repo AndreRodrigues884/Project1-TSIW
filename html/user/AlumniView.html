@@ -37,8 +37,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/html/user/EventsView.html">Eventos</a></li>
-                            <li><a class="dropdown-item" href="/html/user/PrizesView.html">Prémios</a></li>
-                            <li><a class="dropdown-item" href="#">Projetos</a></li>
+                            <li><a class="dropdown-item" href="/html/user/ProjectsView.html">Projetos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item mx-auto">
@@ -49,17 +48,40 @@
                     </li>
                 </ul>
             </div>
-            <a href="/html/user/EditProfileView.html"><i class="bi bi-person text-white p-4 fs-3"></i></a>
+            <a href="/html/user/EditProfileView.html"><i id="editIcon" class="bi bi-person text-white p-4 fs-3"></i></a>
             <button id="loginButton" class="btn main-text-color purple">Login</button>
             <button id="logoutButton" class="btn main-text-color purple">Logout</button>
         </div>
     </nav>
 
-  
-
     <div class="container mt-5">
-        <h2 class="main-text-color p-4">Testemunhos Alumni</h2>
-                <div id="alumniCard" class="row justify-content-center"></div>
+        <div class="row testemunho-card">
+            <div class="col-md-8">
+                <h1 class="event-title">Testemunhos Alumni</h1>
+                <p class="event-description">
+                    Cada graduado do P.PORTO carrega consigo uma identidade distinta e de excelência. Eles fazem parte da nossa história e são os nossos melhores embaixadores. Por isso, o P.PORTO defende, como compromisso e parte da missão institucional, o reforço contínuo da relação com os seus diplomados, incentivando, através do Alumni Office, uma política de proximidade com esta comunidade gigante. Estamos convencidos de que o fim de uma licenciatura significa uma nova etapa de um percurso, em que o Politécnico do Porto poderá ainda estar presente. Divulgar oportunidades de inserção no mercado de trabalho, promovendo a formação contínua e dinamizando eventos e pontos de encontro mais ou menos informais com a comunidade de licenciados.
+                </p>
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <img src="/img/testemunho.png" alt="Plug-in Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+  
+    <hr>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide mt-5">
+        <div class="carousel-inner" id="alumniCard">
+
+        </div>
+        <a class="carousel-control-prev" role="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" role="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
     </div>
 
 
@@ -78,6 +100,22 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="position-fixed bottom-0 end-0 p-3 purple">
+        <a href="/html/user/EscapeRoomView.html">
+            <p class="main-text-color text-white p-3">
+                Escape Room
+            </p>
+        </a>
+    </div>
+
+    <footer class="footer mt-auto py-3 footer-background">
+        <div class="container text-center">
+            <img src="/img/logo_pporto.png" alt="">
+            <span class="text-white">www.esmad.ipp.pt</span>
+        </div>
+    </footer>
 </body>
 <script type="module" src="/js/models/UserModel.js"></script>
 <script type="module" src="/js/views/user/AlumniView.js"></script>

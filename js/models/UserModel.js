@@ -14,8 +14,6 @@ function userMessage() {
     };
 }
 
-
-
 function updateButtonStatus() {
     let loginStatus = localStorage.getItem('isLoggedIn');
     let loginButton = document.getElementById('loginButton');

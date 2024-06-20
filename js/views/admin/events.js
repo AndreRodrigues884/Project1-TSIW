@@ -40,7 +40,7 @@ const addEventButton = document.getElementById('addEventButton');
             const deleteButton = document.createElement('h6');
             deleteButton.textContent = 'Eliminar';
             deleteButton.classList.add('red');
-            deleteButton.addEventListener('click', () => deleteAlumni(index + 1));
+            deleteButton.addEventListener('click', () => deleteEvent(index + 1));
             cellDelete.appendChild(deleteButton);
         });
     }
@@ -113,7 +113,7 @@ const addEventButton = document.getElementById('addEventButton');
         closeModal.hide();
     }
 
-    function deleteAlumni(eventId) {
+    function deleteEvent(eventId) {
         const isConfirmed = confirm("Tem certeza que deseja eliminar este Testemunho?");
 
         if (isConfirmed) {

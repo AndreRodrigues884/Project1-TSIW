@@ -1,8 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+let data = JSON.parse(localStorage.getItem('alumni')) || [];
+    
     function loadDataIntoModal(index) {
-        let data = JSON.parse(localStorage.getItem('alumni')) || [];
-
         let modalCard = document.getElementById("modal-card");
         modalCard.innerHTML = '';
 
@@ -25,32 +23,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function loadAlumniCard() {
-        let data = JSON.parse(localStorage.getItem('alumni')) || [];
         let alumniCard = document.getElementById("alumniCard");
         alumniCard.innerHTML = '';
-        data.forEach(function (item, index) {
-            let cardDiv = document.createElement("div");
-            cardDiv.className = 'col-12 col-md-3 d-flex justify-content-center';
-            cardDiv.innerHTML = `
-            <div class="card d-flex justify-content-center">
-                <img src="${item.img}" class="card-img-top rounded-circle img-fluid p-4" style="width: 200px; height: 200px;">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-center">${item.title}</h5>
-                </div>
-            <div class="p-4 d-flex justify-content-center">
-                <button class="btn btn-primary p-2 w-100 purple border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver</button>
-            </div>
-            </div>
-        `;
-            alumniCard.appendChild(cardDiv);
+       
+        let cardsPerSlide = 3;
 
-            let button = cardDiv.querySelector("button");
-            button.addEventListener("click", function () {
-                loadDataIntoModal(index);
-            });
-        })
+        let numberOfSlides = Math.ceil(data.length / cardsPerSlide);
+
+        for (let i = 0; i < numberOfSlides; i++) {
+            let carouselItem = document.createElement("div");
+            carouselItem.className = 'carousel-item' + (i === 0 ? ' active' : '');
+
+            let rowDiv = document.createElement("div");
+            rowDiv.className = 'row justify-content-center';
+
+            for (let j = 0; j < cardsPerSlide; j++) {
+                let cardIndex = i * cardsPerSlide + j;
+                if (cardIndex >= data.length) break;
+
+                let item = data[cardIndex];
+                let cardDiv = document.createElement("div");
+                cardDiv.className = 'col-12 col-md-3 d-flex justify-content-center';
+                cardDiv.innerHTML = `
+                <div class="card d-flex justify-content-center bc-alumni">
+                    <img src="${item.img}" class="card-img-top rounded-circle img-fluid p-4" style="width: 300px; height: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center text-white">${item.title}</h5>
+                    </div>
+                    <div class="p-4 d-flex justify-content-center">
+                        <button class="btn btn-primary p-2 w-100 purple border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver</button>
+                    </div>
+                </div>
+            `;
+                rowDiv.appendChild(cardDiv);
+
+                let button = cardDiv.querySelector("button");
+                button.addEventListener("click", function () {
+                    loadDataIntoModal(cardIndex);
+                });
+            }
+
+            carouselItem.appendChild(rowDiv);
+            alumniCard.appendChild(carouselItem);
+        }
     }
 
-
     loadAlumniCard();
-});

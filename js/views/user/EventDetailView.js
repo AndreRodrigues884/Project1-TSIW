@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     const urlParams = new URLSearchParams(window.location.search);
     const eventId = parseInt(urlParams.get('id'), 10);
     const storedEvents = JSON.parse(localStorage.getItem('event')) || [];
@@ -7,22 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event) {
         const eventDetailContainer = document.getElementById('eventDetailContainer');
         const eventDetailHTML = `
-        <div class="event-item mb-5">
-        <table class="table">
-            <tr>
-                <td>
-                    <img src="${event.img}" alt="Imagem" width="150">
-                </td>
-                <td>
-                    <h3>${event.title}</h3>
-                    <p>${event.text}</p>
-                </td>
-            </tr>
-        </table>
+     <div class="row event-card">
+            <div class="col-md-8">
+                <h1 class="event-title">${event.title}</h1>
+                <p class="event-description">
+                    ${event.text}
+                </p>
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <img src="${event.img}" alt="Plug-in Image" class="img-fluid">
+            </div>
         </div>
         `;
         eventDetailContainer.innerHTML = eventDetailHTML;
     } else {
         eventDetailContainer.innerHTML = '<p>Evento não encontrado.</p>';
     }
-});
+

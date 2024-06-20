@@ -7,12 +7,13 @@ class EscapeRoom {
         this.clickedObjectId = null;
         this.changedImagesCount = 0;
         this.counterDisplay = document.getElementById('counter');
-        this.fiveMinutes = 60 * 1.5;
+        this.fiveMinutes = 60 *1.5;
         this.questions = [];
         this.usedQuestions = new Set();
         this.loadQuestionsFromStorage();
         this.modalWinElement = document.getElementById('modalWin');
         this.modalLoseElement = document.getElementById('modalLose');
+        this.prizeEscapeRoomDiv = document.getElementById('prizeEscapeRoom');
 
         this.objects.forEach(object => {
             object.addEventListener('click', () => {
@@ -22,6 +23,7 @@ class EscapeRoom {
         });
         this.startCounter(this.fiveMinutes, this.counterDisplay, () => {
             this.openModalLose();
+            localStorage.setItem('hasWonEscapeRoom', 'false');
         });
 
         if (this.modalWinElement) {
@@ -116,6 +118,7 @@ class EscapeRoom {
 
             if (this.changedImagesCount === this.tvObjects.length - 1) {
                 this.openModalWin();
+                localStorage.setItem('hasWonEscapeRoom', 'true');
             }
         } else {
             alert('Resposta errada!');
